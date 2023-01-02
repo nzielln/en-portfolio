@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+
+$poppins: 'Poppins', sans-serif;
+$playfair: 'Playfair Display', serif;
+$main: #E2DCDE;
+$dark: #2D2D34;
+$round-radius: 30px;
+$normal: 14px;
+$content: 16;
+$line-space: 20px;
+
+body {
+    text-align: center;
+
+}
