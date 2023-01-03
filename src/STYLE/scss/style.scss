@@ -117,6 +117,10 @@ body {
             }
 
             .prt_project_section {
+                .prt_button {
+                    height: 755px;
+                }
+
                .prt_project_cover {
                 margin-top: 100px;
                 position: relative;
@@ -131,6 +135,19 @@ body {
                 border-radius: $round-radius;
 
             }
+            }
+        }
+
+        .prt_contact_page {
+            .prt_contact_form_title {
+                height: 30px;
+            }
+            .prt_contact_info {
+
+                input, textarea {
+                    background-color: transparent;
+                    border-bottom: 1px solid $dark;
+                }
             }
         }
     }
@@ -251,6 +268,10 @@ body {
 
 .prt_uppercase {
     text-transform: uppercase;
+}
+
+.prt_lowercase {
+    text-transform: lowercase;
 }
 
 .prt_project_title_style {

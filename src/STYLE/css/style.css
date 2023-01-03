@@ -50,6 +50,9 @@ body {
 .prt_homescreen .prt_homescreen_content .prt_work_page .prt_work_title span {
   font-style: normal;
 }
+.prt_homescreen .prt_homescreen_content .prt_work_page .prt_project_section .prt_button {
+  height: 755px;
+}
 .prt_homescreen .prt_homescreen_content .prt_work_page .prt_project_section .prt_project_cover {
   margin-top: 100px;
   position: relative;
@@ -61,6 +64,13 @@ body {
 .prt_homescreen .prt_homescreen_content .prt_work_page .prt_project_section .prt_project_cover .pro_project_cover_image {
   object-fit: cover;
   border-radius: 30px;
+}
+.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_form_title {
+  height: 30px;
+}
+.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info input, .prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info textarea {
+  background-color: transparent;
+  border-bottom: 1px solid #2d2d34;
 }
 
 .prt_header {
@@ -145,6 +155,10 @@ body {
 
 .prt_uppercase {
   text-transform: uppercase;
+}
+
+.prt_lowercase {
+  text-transform: lowercase;
 }
 
 .prt_project_title_style {

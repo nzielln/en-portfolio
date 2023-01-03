@@ -18,6 +18,7 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import AboutSection from "./Sections/AboutSection";
 import TitleSection from "./Sections/TitleSection";
 import WorkSection from "./Sections/WorkSection";
+import ContactSection from "./Sections/ContactSection";
 
 const HomeScreen = ({projects}: any) => {
     console.log(projects)
@@ -30,9 +31,7 @@ const HomeScreen = ({projects}: any) => {
                 <AboutSection/>
                 <WorkSection project={projects[0]} />
 
-                <div className="prt_contact_page h-screen prt_section" id={PRT_CONTACT_PAGE_SECTION}>
-                    <h1>CONTACT</h1>
-                </div>
+                <ContactSection/>
 
             </div>
 
