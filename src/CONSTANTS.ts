@@ -1,8 +1,13 @@
 // Header
 export const PRT_HOME_PAGE = "Home"
+export const PRT_ABOUT_PAGE = "About"
 export const PRT_RESUME_PAGE = "Resume"
 export const PRT_CONTACT_PAGE = "Contact"
 export const PRT_WORK_PAGE = "Work"
+export const PRT_HOME_PAGE_SECTION = "home_section"
+export const PRT_ABOUT_PAGE_SECTION = "about_section"
+export const PRT_CONTACT_PAGE_SECTION = "contact_section"
+export const PRT_WORK_PAGE_SECTION = "work_section"
 export const PRT_BACK_TO_MAIN = "Back to main site"
 export const PRT_BACK_TO_HOME = "Back to Home"
 export const PRT_LAST_INITALS = "EN"

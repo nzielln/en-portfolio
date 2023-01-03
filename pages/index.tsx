@@ -2,8 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Script from 'next/script'
 import HomeScreen from '../src/FRONTEND/VIEWS/HomeScreen'
+import { GetStaticProps } from 'next'
 
-export default function Home() {
+const Home = ({projects}: any) => {
   return (
     <>
       <Head>
@@ -14,8 +15,23 @@ export default function Home() {
         <script src="https://kit.fontawesome.com/0a108ab6f7.js" crossOrigin="anonymous" async></script>
       </Head>
       <main >
-        <HomeScreen/>
+        <HomeScreen projects={projects} />
       </main>
     </>
   )
+}
+
+export default Home
+
+export const getStaticProps: GetStaticProps = async () => {
+  const {projects} = await import("../data/sample_data.json", { assert: { type: "json" } })
+
+  console.log(projects)
+  return {
+    props: {
+      projects: projects
+
+    }
+  }
+
 }

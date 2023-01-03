@@ -2,56 +2,149 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-$poppins: "Poppins", sans-serif;
 $space: "Space Mono", monospace;
 $playfair: "Playfair Display", serif;
 $main: #e2dcde;
 $dark: #2d2d34;
 $round-radius: 30px;
 $normal: 14px;
-$content: 16;
+$title: 148px;
+$project-title: 64px;
+$content: 16px;
 $line-space: 20px;
 $letter-spacing: -5%;
 
-main {
+body {
     background-color: $main;
+
     height: 100vh;
+    padding: {
+        left: 115px;
+        right: 115px;
+        top: 54px;
+    }
+    color: $dark;
 }
+
+// .prt_body {
+//     background-color: $main;
+
+//     border: 2px solid red;
+//     padding: 25px;
+//     border-radius: 35px;
+// }
+
 .prt_homescreen {
     .prt_homescreen_content {
-        div {
-            background-color: red;
+        // HOME PAGE CONTENT
+        .prt_home_page {
+            .prt_home_page_row_title {
+                .prt_name_col {
+                    .prt_title_name {
+                        line-height: 140px;
+
+                        span {
+                            font-style: normal;
+                        }
+                    }
+                }
+
+                .prt_role_description_col {
+                    padding: {
+                        top: 50%;
+                    }
+                }
+            }
+
+            .prt_home_page_row_desc {
+                .prt_back_to_top {
+                    .prt_icon {
+                        color: $dark;
+                    }
+                    .prt_label {
+                        visibility: hidden;
+                    }
+
+                    &:hover .prt_label {
+                        visibility: visible;
+                    }
+                }
+            }
         }
-        
+
+        // ABOUT ME CONTENT
+        .prt_about_page {
+            p {
+                span {
+                    font: {
+                        family: $playfair;
+                        style: italic;
+                    }
+                    text-transform: lowercase;
+                    .prt_span_normal {
+                        font-style: normal;
+                    }
+                }
+            }
+
+            .prt_about_me_title {
+                span {
+                    font-style: normal;
+                }
+            }
+        }
+
+        // WORK CONTENT
+
+        .prt_work_page {
+            .prt_navigation_button {
+                .prt_icon {
+                    color: $dark;
+                }
+            }
+            .prt_more_icon {
+                margin-left: 15px;
+            }
+
+            .prt_work_title {
+
+                span {
+                    font-style: normal;
+                }
+            }
+
+            .prt_project_section {
+               .prt_project_cover {
+                margin-top: 100px;
+                position: relative;
+                width: 100%;
+                height: 755px;
+                .pro_project_cover_image {
+                    object-fit: cover;
+                    border-radius: $round-radius;
+                }
+
+                border: 2px solid $dark;
+                border-radius: $round-radius;
+
+            }
+            }
+        }
     }
-
 }
-
 
 .prt_header {
     width: 100%;
-    .prt_header_logo {
-        width: 50%;
-    }
-    .prt_header_menu {
-        width: 50%;
-    }
 }
 
 .prt_round_button {
     margin: {
-        left: 10px;
+        left: 24px;
     }
     .prt_menu_link {
-        font: {
-            family: $space;
-            size: $normal;
-            weight: $normal;
-        }
-
         line-height: $line-space;
         letter-spacing: -0.05em;
 
@@ -68,4 +161,134 @@ main {
 
     border: 1.5px solid $dark;
     border-radius: $round-radius;
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+        color: $main;
+        background-color: $dark;
+    }
+}
+
+// FONT STYLES
+.prt_normal_style {
+    font: {
+        family: $space;
+        size: $normal;
+    }
+
+    letter-spacing: -0.05em;
+}
+
+.prt_normal_style_i {
+    font: {
+        family: $space;
+        size: $normal;
+        style: italic;
+    }
+
+    letter-spacing: -0.05em;
+}
+
+.prt_normal_style_ib {
+    font: {
+        family: $space;
+        size: $normal;
+        style: italic;
+        weight: 700;
+    }
+
+    letter-spacing: -0.05em;
+}
+
+.prt_normal_style_b {
+    font: {
+        family: $space;
+        size: $normal;
+        weight: 700;
+    }
+
+    letter-spacing: -0.05em;
+}
+
+.prt_content_style {
+    font: {
+        family: $space;
+        size: $content;
+    }
+    letter-spacing: -0.05em;
+}
+
+.prt_content_style_i {
+    font: {
+        family: $space;
+        size: $content;
+        style: italic;
+    }
+
+    letter-spacing: -0.05em;
+}
+
+.prt_content_style_b {
+    font: {
+        family: $space;
+        size: $content;
+        weight: 700;
+    }
+
+    letter-spacing: -0.05em;
+}
+
+.prt_content_style_ib {
+    font: {
+        family: $space;
+        size: $content;
+        style: italic;
+        weight: 700;
+    }
+
+    letter-spacing: -0.05em;
+}
+
+.prt_uppercase {
+    text-transform: uppercase;
+}
+
+.prt_project_title_style {
+    font: {
+        family: $space;
+        size: $project-title;
+        weight: 700;
+    }
+}
+
+// TITLE FONT STYLE
+
+.prt_pf_title {
+    font: {
+        family: $playfair;
+        size: $title;
+    }
+}
+
+.prt_pf_title_i {
+    font: {
+        family: $playfair;
+        size: $title;
+        style: italic;
+    }
+}
+
+.prt_pf_content {
+    font: {
+        family: $playfair;
+        size: $content;
+    }
+}
+
+.prt_pf_content_i {
+    font: {
+        family: $playfair;
+        size: $content;
+        style: italic;
+    }
 }

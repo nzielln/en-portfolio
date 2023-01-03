@@ -7,8 +7,8 @@ const RoundButton = ({ link}: ButtonProp) => {
     
     return (
         <div className="prt_round_button">
-            <Link href={link.link.toLowerCase()} className="prt_menu_link">
-                {link.title.toUpperCase()}
+            <Link href={`#${link.link}`} className="prt_menu_link prt_normal_style prt_uppercase" scroll={link.title === PRT_HOME_PAGE ? true : false}>
+                {link.title}
             </Link>
 
         </div>

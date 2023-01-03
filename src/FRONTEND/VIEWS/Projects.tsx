@@ -3,7 +3,7 @@ import Link from "next/link"
 const Projects = () => {
 
     return (
-        <div>
+        <div className="col-start-2 col-span-10">
             <h1>Projects</h1>
         </div>
     )

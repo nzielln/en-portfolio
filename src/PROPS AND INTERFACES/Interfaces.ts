@@ -3,7 +3,8 @@ export interface ProjectInterface {
     type: string,
     tools: string[],
     description: string,
-    link: string
+    link: string,
+    image: string
 }
 
 export interface LinkInterface {
