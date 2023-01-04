@@ -9,6 +9,7 @@ $space: "Space Mono", monospace;
 $playfair: "Playfair Display", serif;
 $main: #e2dcde;
 $dark: #2d2d34;
+$red: #f45d59;
 $round-radius: 30px;
 $normal: 14px;
 $title: 148px;
@@ -45,10 +46,6 @@ body {
                 .prt_name_col {
                     .prt_title_name {
                         line-height: 140px;
-
-                        span {
-                            font-style: normal;
-                        }
                     }
                 }
 
@@ -75,25 +72,9 @@ body {
             }
         }
 
-        // ABOUT ME CONTENT
         .prt_about_page {
-            p {
-                span {
-                    font: {
-                        family: $playfair;
-                        style: italic;
-                    }
-                    text-transform: lowercase;
-                    .prt_span_normal {
-                        font-style: normal;
-                    }
-                }
-            }
-
             .prt_about_me_title {
-                span {
-                    font-style: normal;
-                }
+                margin-bottom: 100px;
             }
         }
 
@@ -110,49 +91,131 @@ body {
             }
 
             .prt_work_title {
-
-                span {
-                    font-style: normal;
-                }
+                margin-bottom: 100px;
             }
-
             .prt_project_section {
                 .prt_button {
                     height: 755px;
                 }
-
-               .prt_project_cover {
-                margin-top: 100px;
-                position: relative;
-                width: 100%;
-                height: 755px;
-                .pro_project_cover_image {
-                    object-fit: cover;
-                    border-radius: $round-radius;
+                .prt_see_more {
+                    padding-bottom: 25px;
                 }
+                .prt_project_detail_section {
+                    .prt_project_cover {
+                        position: relative;
+                        width: 100%;
+                        height: 755px;
+                        .pro_project_cover_image {
+                            object-fit: cover;
+                            border-radius: $round-radius;
+                        }
 
-                border: 2px solid $dark;
-                border-radius: $round-radius;
-
-            }
+                        border: 2px solid $dark;
+                        border-radius: $round-radius;
+                    }
+                }
+                .prt_project_details {
+                    padding-left: 10%;
+                    padding-right: 10%;
+                    padding-top: 25px;
+                }
             }
         }
 
         .prt_contact_page {
             .prt_contact_form_title {
-                height: 30px;
+                height: 150px;
             }
-            .prt_contact_info {
 
-                input, textarea {
+            .prt_contact_info {
+                label {
+                    margin: {
+                        top: 5px;
+                    }
+                }
+
+                .prt_required {
+                    &:after {
+                        content: " *";
+                        color: $red;
+                        font-size: 12px;
+                    }
+                }
+
+                .prt_contact_form_input {
                     background-color: transparent;
-                    border-bottom: 1px solid $dark;
+                    border-bottom: 1.5px solid $dark;
+                    &:focus {
+                        outline: none !important;
+                    }
+                }
+
+                .prt_contact_input_text {
+                    height: 35px;
+                }
+
+                .prt_contact_form_submit {
+                    .prt_contact_form_button {
+                        margin-top: 30px;
+                        padding: {
+                            left: 15px;
+                            right: 15px;
+                        }
+
+                        width: -moz-fit-content;
+                        width: fit-content;
+                        height: 30px;
+
+                        border: 1.5px solid $dark;
+                        border-radius: $round-radius;
+                        background-color: $dark;
+                        color: $main;
+                    }
+                }
+
+                .prt_contact_links {
+                    height: 100%;
+
+                    a,
+                    form {
+                        margin-top: 10px;
+                    }
+                    .prt_external_link {
+                        &:before {
+                            content: " / ";
+                        }
+
+                        &:hover {
+                            &:after {
+                                content: "";
+                                color: transparent;
+                            }
+                            &:before {
+                                color: transparent;
+                            }
+                            text-decoration: underline;
+                            text-underline-offset: 5px;
+                        }
+                    }
                 }
             }
         }
     }
 }
 
+// MORE PROJECTS
+
+.prt_more_projects {
+    padding-top: 5%;
+
+    .prt_more_projects_title {
+        height: 50px;
+    }
+}
+
+.prt_section_divider {
+    padding-top: 150px;
+}
 .prt_header {
     width: 100%;
 }
@@ -191,6 +254,7 @@ body {
     font: {
         family: $space;
         size: $normal;
+        style: normal;
     }
 
     letter-spacing: -0.05em;
@@ -222,6 +286,7 @@ body {
         family: $space;
         size: $normal;
         weight: 700;
+        style: normal;
     }
 
     letter-spacing: -0.05em;
@@ -231,6 +296,7 @@ body {
     font: {
         family: $space;
         size: $content;
+        style: normal;
     }
     letter-spacing: -0.05em;
 }
@@ -250,6 +316,7 @@ body {
         family: $space;
         size: $content;
         weight: 700;
+        style: normal;
     }
 
     letter-spacing: -0.05em;
@@ -279,6 +346,7 @@ body {
         family: $space;
         size: $project-title;
         weight: 700;
+        style: normal;
     }
 }
 
@@ -288,6 +356,7 @@ body {
     font: {
         family: $playfair;
         size: $title;
+        style: normal;
     }
 }
 
@@ -303,6 +372,7 @@ body {
     font: {
         family: $playfair;
         size: $content;
+        style: normal;
     }
 }
 
@@ -310,6 +380,22 @@ body {
     font: {
         family: $playfair;
         size: $content;
+        style: italic;
+    }
+}
+
+.prt_pf_normal {
+    font: {
+        family: $playfair;
+        size: $normal;
+        style: normal;
+    }
+}
+
+.prt_pf_normal_i {
+    font: {
+        family: $playfair;
+        size: $normal;
         style: italic;
     }
 }

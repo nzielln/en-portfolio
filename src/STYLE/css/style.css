@@ -15,9 +15,6 @@ body {
 .prt_homescreen .prt_homescreen_content .prt_home_page .prt_home_page_row_title .prt_name_col .prt_title_name {
   line-height: 140px;
 }
-.prt_homescreen .prt_homescreen_content .prt_home_page .prt_home_page_row_title .prt_name_col .prt_title_name span {
-  font-style: normal;
-}
 .prt_homescreen .prt_homescreen_content .prt_home_page .prt_home_page_row_title .prt_role_description_col {
   padding-top: 50%;
 }
@@ -30,16 +27,8 @@ body {
 .prt_homescreen .prt_homescreen_content .prt_home_page .prt_home_page_row_desc .prt_back_to_top:hover .prt_label {
   visibility: visible;
 }
-.prt_homescreen .prt_homescreen_content .prt_about_page p span {
-  font-family: "Playfair Display", serif;
-  font-style: italic;
-  text-transform: lowercase;
-}
-.prt_homescreen .prt_homescreen_content .prt_about_page p span .prt_span_normal {
-  font-style: normal;
-}
-.prt_homescreen .prt_homescreen_content .prt_about_page .prt_about_me_title span {
-  font-style: normal;
+.prt_homescreen .prt_homescreen_content .prt_about_page .prt_about_me_title {
+  margin-bottom: 100px;
 }
 .prt_homescreen .prt_homescreen_content .prt_work_page .prt_navigation_button .prt_icon {
   color: #2d2d34;
@@ -47,30 +36,95 @@ body {
 .prt_homescreen .prt_homescreen_content .prt_work_page .prt_more_icon {
   margin-left: 15px;
 }
-.prt_homescreen .prt_homescreen_content .prt_work_page .prt_work_title span {
-  font-style: normal;
+.prt_homescreen .prt_homescreen_content .prt_work_page .prt_work_title {
+  margin-bottom: 100px;
 }
 .prt_homescreen .prt_homescreen_content .prt_work_page .prt_project_section .prt_button {
   height: 755px;
 }
-.prt_homescreen .prt_homescreen_content .prt_work_page .prt_project_section .prt_project_cover {
-  margin-top: 100px;
+.prt_homescreen .prt_homescreen_content .prt_work_page .prt_project_section .prt_see_more {
+  padding-bottom: 25px;
+}
+.prt_homescreen .prt_homescreen_content .prt_work_page .prt_project_section .prt_project_detail_section .prt_project_cover {
   position: relative;
   width: 100%;
   height: 755px;
   border: 2px solid #2d2d34;
   border-radius: 30px;
 }
-.prt_homescreen .prt_homescreen_content .prt_work_page .prt_project_section .prt_project_cover .pro_project_cover_image {
+.prt_homescreen .prt_homescreen_content .prt_work_page .prt_project_section .prt_project_detail_section .prt_project_cover .pro_project_cover_image {
   object-fit: cover;
   border-radius: 30px;
 }
-.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_form_title {
-  height: 30px;
+.prt_homescreen .prt_homescreen_content .prt_work_page .prt_project_section .prt_project_details {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 25px;
 }
-.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info input, .prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info textarea {
+.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_form_title {
+  height: 150px;
+}
+.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info label {
+  margin-top: 5px;
+}
+.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info .prt_required:after {
+  content: " *";
+  color: #f45d59;
+  font-size: 12px;
+}
+.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info .prt_contact_form_input {
   background-color: transparent;
-  border-bottom: 1px solid #2d2d34;
+  border-bottom: 1.5px solid #2d2d34;
+}
+.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info .prt_contact_form_input:focus {
+  outline: none !important;
+}
+.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info .prt_contact_input_text {
+  height: 35px;
+}
+.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info .prt_contact_form_submit .prt_contact_form_button {
+  margin-top: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 30px;
+  border: 1.5px solid #2d2d34;
+  border-radius: 30px;
+  background-color: #2d2d34;
+  color: #e2dcde;
+}
+.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info .prt_contact_links {
+  height: 100%;
+}
+.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info .prt_contact_links a,
+.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info .prt_contact_links form {
+  margin-top: 10px;
+}
+.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info .prt_contact_links .prt_external_link:before {
+  content: " / ";
+}
+.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info .prt_contact_links .prt_external_link:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info .prt_contact_links .prt_external_link:hover:after {
+  content: "";
+  color: transparent;
+}
+.prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info .prt_contact_links .prt_external_link:hover:before {
+  color: transparent;
+}
+
+.prt_more_projects {
+  padding-top: 5%;
+}
+.prt_more_projects .prt_more_projects_title {
+  height: 50px;
+}
+
+.prt_section_divider {
+  padding-top: 150px;
 }
 
 .prt_header {
@@ -100,6 +154,7 @@ body {
 .prt_normal_style {
   font-family: "Space Mono", monospace;
   font-size: 14px;
+  font-style: normal;
   letter-spacing: -0.05em;
 }
 
@@ -122,12 +177,14 @@ body {
   font-family: "Space Mono", monospace;
   font-size: 14px;
   font-weight: 700;
+  font-style: normal;
   letter-spacing: -0.05em;
 }
 
 .prt_content_style {
   font-family: "Space Mono", monospace;
   font-size: 16px;
+  font-style: normal;
   letter-spacing: -0.05em;
 }
 
@@ -142,6 +199,7 @@ body {
   font-family: "Space Mono", monospace;
   font-size: 16px;
   font-weight: 700;
+  font-style: normal;
   letter-spacing: -0.05em;
 }
 
@@ -165,11 +223,13 @@ body {
   font-family: "Space Mono", monospace;
   font-size: 64px;
   font-weight: 700;
+  font-style: normal;
 }
 
 .prt_pf_title {
   font-family: "Playfair Display", serif;
   font-size: 148px;
+  font-style: normal;
 }
 
 .prt_pf_title_i {
@@ -181,11 +241,24 @@ body {
 .prt_pf_content {
   font-family: "Playfair Display", serif;
   font-size: 16px;
+  font-style: normal;
 }
 
 .prt_pf_content_i {
   font-family: "Playfair Display", serif;
   font-size: 16px;
+  font-style: italic;
+}
+
+.prt_pf_normal {
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
+  font-style: normal;
+}
+
+.prt_pf_normal_i {
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
   font-style: italic;
 }
 

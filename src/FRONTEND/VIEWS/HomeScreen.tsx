@@ -20,18 +20,16 @@ import TitleSection from "./Sections/TitleSection";
 import WorkSection from "./Sections/WorkSection";
 import ContactSection from "./Sections/ContactSection";
 
-const HomeScreen = ({projects}: any) => {
+const HomeScreen = ({ projects }: any) => {
     console.log(projects)
     return (
-        <div className="prt_homescreen" id={PRT_HOME_PAGE_SECTION}>
-            <Header />
-
+        <div className="prt_homescreen">
             <div className="prt_homescreen_content">
-                <TitleSection/>
-                <AboutSection/>
+                <TitleSection />
+                <AboutSection />
                 <WorkSection project={projects[0]} />
 
-                <ContactSection/>
+                <ContactSection />
 
             </div>
 

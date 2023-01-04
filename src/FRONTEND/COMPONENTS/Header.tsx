@@ -11,6 +11,7 @@ import {
     PRT_WORK_PAGE_SECTION,
     PRT_ABOUT_PAGE_SECTION,
     PRT_CONTACT_PAGE_SECTION,
+    PRT_RESUME_LINK,
 } from "../../CONSTANTS";
 
 const MENU_ITEMS = [
@@ -32,7 +33,7 @@ const MENU_ITEMS = [
     },
     {
         "title": PRT_RESUME_PAGE,
-        "link": "/resume"
+        "link": PRT_RESUME_LINK
     },
 ]
 

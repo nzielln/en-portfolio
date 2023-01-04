@@ -34,6 +34,20 @@ export const PRT_SUBMIT_BUTTON = "Submit"
 
 // Work
 export const PRT_CHECK_OUT_MORE = "Check out my more academic projects"
-export const PRT_GITHUB_LINK = "Github Link"
+export const PRT_GITHUB_LINK_TEXT = "Github Link"
 export const PRT_NEXT = "Next"
 export const PRT_PREV = "Prev"
+
+// Links
+export const PRT_LINKEDIN_LINK = "https://www.linkedin.com/in/ellah-nzikoba/"
+export const PRT_GITHUB_LINK = "https://github.com/nzielln"
+export const PRT_BEHANCE_LINK = "https://www.behance.net/ellahnzikoba"
+export const PRT_EMAIL_LINK = "mailto:ellahnzikoba@gmail.com?subject=Interested in Connecting"
+export const PRT_EMAIL_LINK_SUBJECT = "Interested in Connecting!"
+
+// Pages Link
+export const PRT_RESUME_NAME = "resume.pdf"
+export const PRT_MORE_PROJECTS_LINK= "/projects/more-projects"
+export const PRT_PROJECTS_LINK = "/projects"
+export const PRT_HOME_LINK = "/"
+export const PRT_RESUME_LINK = "/RESUME/" + PRT_RESUME_NAME

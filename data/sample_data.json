@@ -6,7 +6,11 @@
             "tools": ["ReactJS", "NodeJS", "HTML", "SCSS", "Spotify API"],
             "description": "A REACT BASED WEB APPLICATION TO VIEW AND PREVIEW MUSIC STATS, INCLUDING TOP ARTIST AND SONGS. THE APPLICATION ALSO PROVIDES RECOMMENDATIONS BASED ON THE STATS AND ALLOWS USERS TO PLAY TO AND CONTROL THEIR MUSIC DIRECTLY FROM THE APPLICATION",
             "link": "https://github.com/nzielln/roundup",
-            "image": ["rp_green.png", "rp_green_a"]
+            "images": {
+                "cover": "rp_green.png",
+                "primary": "rp_green_a.png",
+                "secondary": "rp_green_b.png"
+            }
         }
         
     ],
@@ -18,7 +22,9 @@
             "tools": ["C++", "SMFL", "CMake"],
             "description": "A C++ PAINT APPLICATION THAT ALLOWS MULTIPLE USERS TO PAINT AND INTERACT ON A SHARED CANVAS. MY MAIN CONTRIBUTION WAS IMPLEMENTING THE TCP SERVER  THAT RAN THE APPLICATION BUT RETRIEVING PACKETS AND DATA, STORING AND RELAYING RELEVANT INFORMATION TO ALL USERS.",
             "link": "https://github.com/nzielln/collabpaint",
-            "image": ""
+            "image": {
+                
+            }
         },
         {
             "title": "Easy Animator",
@@ -26,7 +32,9 @@
             "tools": ["Java", "Java Swing GUI"],
             "description": "A JAVA APPLICATION THAT TRANSFORMS TEXT-BASED ANIMATION DESCRIPTIONS INTO VISUAL REPRESENTATIONS, INCLUDING AN INTERACTIVE VIEW THAT ALLOWS A USER  TO CONTROL MULTIPLE PROPERTIES OF THE ANIMATION, INCLUDING SPEED, REWINDING/FAST-FORWARDING, AND REPLAYS.",
             "link": "https://github.com/nzielln/animator",
-            "image": ""
+            "image": {
+                
+            }
         },
         {
             "title": "Mini Shell",
@@ -34,7 +42,9 @@
             "tools": ["C"],
             "description": "A C BASED SHELL THAT SUPPORTS STANDARD COMMANDS IN ADDITION TO CUSTOM COMMANDS SUCH AS A NUMBERS GAME AND HISTORY",
             "link": "https://github.com/nzielln/minishell",
-            "image": ""
+            "image": {
+                
+            }
         }
 
     ]

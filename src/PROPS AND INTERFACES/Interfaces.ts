@@ -4,7 +4,11 @@ export interface ProjectInterface {
     tools: string[],
     description: string,
     link: string,
-    image: string
+    images: {
+        cover: string,
+        primary: string,
+        secondary: string
+    } | any
 }
 
 export interface LinkInterface {
