@@ -25,8 +25,6 @@ export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
   const {projects} = await import("../data/sample_data.json")
-
-  console.log(projects)
   return {
     props: {
       projects: projects

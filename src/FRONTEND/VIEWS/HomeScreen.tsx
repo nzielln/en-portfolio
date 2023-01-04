@@ -21,7 +21,6 @@ import WorkSection from "./Sections/WorkSection";
 import ContactSection from "./Sections/ContactSection";
 
 const HomeScreen = ({ projects }: any) => {
-    console.log(projects)
     return (
         <div className="prt_homescreen">
             <div className="prt_homescreen_content">

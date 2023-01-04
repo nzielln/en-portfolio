@@ -11,6 +11,18 @@
                 "primary": "rp_green_a.png",
                 "secondary": "rp_green_b.png"
             }
+        },
+        {
+            "title": "coffee&cream",
+            "type": "Web Application",
+            "tools": ["ReactJS", "NodeJS", "HTML", "SCSS", "MongoDB"],
+            "description": "A REACT BASED WEB APPLICATION THAT ALLOWS USERS TO VIEW MENU AND ITEMS, AND PLACE ORDERS AT A FICTIONAL CAFE. THE APPLICATION ALSO PROVIDES AN INTERFACE FOR THE CAFE TO MANAGE THEIR MENU AND ITEMS, INCLUDING PRICES AND OTHER RELEVANTS DETAILS, AND INCOMING ORDERS.",
+            "link": "https://github.com/nzielln/coffeecream",
+            "images": {
+                "cover": "cc.png",
+                "primary": "cc_a.png",
+                "secondary": "cc_b.png"
+            }
         }
         
     ],

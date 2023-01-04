@@ -8,8 +8,9 @@ const ContactSection = () => {
         <div className="prt_contact_page h-screen prt_section flex flex-col justify-center" id={PRT_CONTACT_PAGE_SECTION}>
             <h4 className="prt_contact_form_title prt_pf_content_i prt_lowercase"><span className="prt_pf_content">G</span>et <span className="prt_pf_content">i</span>n <span className="prt_pf_content">t</span>ouc<span className="prt_pf_content">h</span></h4>
 
-            <div className="prt_contact_info grid grid-cols-12">
-                <div className="prt_form col-start-1 col-span-7">
+            <div
+                className="prt_contact_info grid md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 md:gap-2 lg:gap-4 xl:gap-6">
+                <div className="prt_form md:col-start-1 md:col-span-5 lg:col-start-1 lg:col-span-7 xl:col-start-1 xl:col-span-7">
                     <form action="" className="prt_contact_form" method="POST" id="prt_contact_form_id">
                         <div className="prt_contact_form_input_group flex flex-col">
                             <label htmlFor="prt_contact_form_name" className="prt_form_label prt_required prt_normal_style prt_uppercase">{PRT_CONTACT_FORM_NAME}</label>
@@ -34,7 +35,7 @@ const ContactSection = () => {
                         
                     </form>
                 </div>
-                <div className="prt_contact_links col-start-10 col-span-3 flex flex-col justify-end">
+                <div className="prt_contact_links md:col-start-7 md:col-span-2 lg:col-start-9 lg:col-span-2 xl:col-start-9 xl:col-span-4 flex flex-col justify-end">
                     <a href={PRT_LINKEDIN_LINK} className="prt_external_link prt_normal_style prt_uppercase" target="_blank" rel="noreferrer">Linked<span className="prt_pf_normal_i prt_lowercase">in</span></a>
                     <a href={PRT_GITHUB_LINK} className="prt_external_link prt_normal_style prt_uppercase" target="_blank" rel="noreferrer">G<span className="prt_pf_normal_i prt_lowercase">it</span>hub</a>
                     <a href={PRT_BEHANCE_LINK} className="prt_external_link prt_normal_style prt_uppercase" target="_blank" rel="noreferrer"><span className="prt_pf_normal_i prt_lowercase">Be</span>hance</a>

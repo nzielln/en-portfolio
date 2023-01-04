@@ -24,7 +24,6 @@ const MoreProjectsPage = ({projects}: any) => {
 
 export default MoreProjectsPage
 
-
 export const getStaticProps: GetStaticProps = async () => {
     const { more_projects } = await import("../../data/sample_data.json")
 

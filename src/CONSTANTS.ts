@@ -51,3 +51,10 @@ export const PRT_MORE_PROJECTS_LINK= "/projects/more-projects"
 export const PRT_PROJECTS_LINK = "/projects"
 export const PRT_HOME_LINK = "/"
 export const PRT_RESUME_LINK = "/RESUME/" + PRT_RESUME_NAME
+
+
+// STYLE
+
+export const PRT_MORE_SPAN = "7"
+export const PRT_IMAGES_FOLDER = "IMAGES"
+export const PRT_DETAIL_SPAN = "5"
