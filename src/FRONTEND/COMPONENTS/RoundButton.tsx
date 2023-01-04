@@ -6,7 +6,7 @@ import { ButtonProp } from "../../PROPS AND INTERFACES/Props";
 const RoundButton = ({ link}: ButtonProp) => {
     
     return (
-        <div className="prt_round_button">
+        <div className="prt_round_button flex items-center justify-center">
             <Link
                 href={link.title === PRT_RESUME_PAGE ? link.link : `#${link.link}`}
                 className="prt_menu_link prt_normal_style prt_uppercase"

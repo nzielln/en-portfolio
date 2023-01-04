@@ -9,16 +9,14 @@ import ProjectCover from "../../COMPONENTS/ProjectCover"
 
 const WorkSection = ({ project }: any) => {
     return (
-        <div className="prt_work_page h-screen prt_section flex flex-col justify-center" id={PRT_WORK_PAGE_SECTION}>
+        <div className="prt_work_page h-screen prt_section flex flex-col justify-around" id={PRT_WORK_PAGE_SECTION}>
 
-            <div className="prt_work_title grid lg:grid-cols-6 md:gap-2 lg:gap-4 xl:gap-6">
-                <h5 className="prt_pf_content_i prt_lowercase col-start-3 col-span-3">A cou<span className="prt_pf_content">pl</span>e of things <span className="prt_pf_content prt_uppercase">I</span>&#39;ve wor<span className="prt_pf_content">k</span>ed on</h5>
+            <div className="prt_work_title grid lg:grid-cols-6 md:gap-1 lg:gap-2 xl:gap-3">
+                <h5 className="prt_pf_content_i prt_lowercase col-start-2 col-span-3">A cou<span className="prt_pf_content">pl</span>e of things <span className="prt_pf_content prt_uppercase">I</span>&#39;ve wor<span className="prt_pf_content">k</span>ed on</h5>
             </div>
 
-            
-
-            <div className="prt_project_section grid lg:grid-cols-6 items-end">
-                <Link href={PRT_MORE_PROJECTS_LINK} className="prt_see_more prt_uppercase prt_normal_style col-start-7 col-span-4 flex justify-end items-center" passHref>
+            <div className="prt_project_section grid grid-cols-12 items-end">
+                <Link href={PRT_MORE_PROJECTS_LINK} className="prt_see_more prt_uppercase prt_normal_style sm:col-start-5 sm:col-span-6 md:col-start-5 md:col-span-6 lg:col-start-6 lg:col-span-5 xl:col-start-7 xl:col-span-4 flex justify-end items-center" passHref>
                     Checkout my more academic projects
                     <FontAwesomeIcon icon={faArrowRight} className="prt_icon prt_more_icon" />
                 </Link>
@@ -33,7 +31,7 @@ const WorkSection = ({ project }: any) => {
                         <ProjectCover project={project} />
                     </Link>
                     <div className="prt_project_details flex justify-between">
-                        <h4 className="prt_project_title_small prt_content_style_b prt_uppercase">{ project.title} </h4>
+                        <h4 className="prt_project_title_small prt_content_style_b prt_uppercase">{project.title} </h4>
                         <h4 className="prt_project_type prt_content_style prt_uppercase">{project.type}</h4>
                     </div>
                 </div>

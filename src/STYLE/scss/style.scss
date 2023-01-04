@@ -10,47 +10,72 @@ $playfair: "Playfair Display", serif;
 $main: #e2dcde;
 $dark: #2d2d34;
 $red: #f45d59;
-$round-radius: 30px;
-$normal_sm_md: 14px;
+$round-radius_xl: 20px;
+$round-radius_lg: 20px;
+$round-radius_md: 20px;
+$round-radius_sm: 20px;
+$normal_xsm: 10px;
+$normal_sm: 14px;
 $normal_lg: 16px;
 $title_sm: 92px;
 $title_md: 116px;
-$title_lg: 148px;
+$title_lg: 124px;
+$title_xl: 148px;
 $project-title: 64px;
-$content_sm_md: 16px;
+$content_sm: 16px;
 $content_lg: 18px;
-$line-space_sm_md: 20px;
+$line-space_sm: 20px;
 $line-space_lg: 22px;
 $letter-spacing: -5%;
-$large_line_height_sm: 100px;
-$large_line_height_lg: 140px;
+$large_line_height_sm: 80px;
+$large_line_height_md: 100px;
+$large_line_height_lg: 105px;
+$large_line_height_xl: 125px;
 
-$padding_sm: 64px;
+$cover_height_sm: 46vw;
+$cover_height_md: 46vw;
+$cover_height_lg: 42vw;
+$cover_height_xl: 41.5vw;
+
+$padding_sm: 46px;
+$padding_md: 48px;
+$padding_lg: 110px;
 $padding_xl: 128px;
 
-$small_screen: 640px;
-$medium_screen: 768px;
-$large_screen: 1024px;
+$small_screen: 768px;
+$medium_screen: 1024px;
+$large_screen: 1280px;
 $xl_screen: 1280px;
 
+// 1280+
 @mixin responsive($breakpoint) {
+    // From 1025 to 1280
+    @if $breakpoint == large {
+        @media screen and (max-width: $large_screen) {
+            @content;
+        }
+    }
+
+    // From 769 to 1024
     @if $breakpoint == medium {
-        @media (max-width: $medium_screen) {
+        @media screen and (max-width: $medium_screen) {
             @content;
         }
     }
 
+    // Up to 768
     @if $breakpoint == small {
-        @media (max-width: $small_screen) {
+        @media screen and (max-width: $small_screen) {
             @content;
         }
     }
+}
 
+@function cover_height() {
 }
 
 body {
     background-color: $main;
-
     height: 100vh;
     padding: {
         left: $padding_xl;
@@ -58,9 +83,14 @@ body {
         top: 54px;
     }
 
+    @include responsive(large) {
+        padding-left: $padding_lg;
+        padding-right: $padding_lg;
+    }
+
     @include responsive(medium) {
-        padding-left: $padding_sm;
-        padding-right: $padding_sm;
+        padding-left: $padding_md;
+        padding-right: $padding_md;
     }
 
     @include responsive(small) {
@@ -90,23 +120,26 @@ body {
             .prt_home_page_row_title {
                 .prt_name_col {
                     .prt_title_name {
-                        line-height: $large_line_height_lg;
+                        line-height: $large_line_height_xl;
+
+                        @include responsive(large) {
+                            line-height: $large_line_height_lg;
+                        }
+
+                        @include responsive(medium) {
+                            line-height: $large_line_height_md;
+                        }
 
                         @include responsive(small) {
                             line-height: $large_line_height_sm;
                         }
-
-                        @include responsive(medium) {
-                            line-height: $large_line_height_sm;
-                        }
                     }
-                }
 
-                .prt_role_description_col {
-                    padding: {
-                        top: 50%;
-                    }
+                    padding-bottom: 7%;
                 }
+            }
+
+            .prt_home_page_row_role {
             }
 
             .prt_home_page_row_desc {
@@ -126,7 +159,8 @@ body {
         }
 
         .prt_about_page {
-            .prt_about_me_title {
+            margin-bottom: 10%;
+            .prt_about_me_title_top {
                 margin-bottom: 100px;
             }
         }
@@ -144,33 +178,76 @@ body {
             }
 
             .prt_work_title {
-                margin-bottom: 100px;
+                margin-bottom: 40px;
             }
             .prt_project_section {
                 .prt_button {
-                    height: 755px;
+                    height: 100%;
                 }
                 .prt_see_more {
-                    padding-bottom: 25px;
+                    padding-bottom: 20px;
+
+                    @include responsive(large) {
+                        padding-bottom: 16px;
+                        font-size: $normal_lg;
+                    }
+
+                    @include responsive(medium) {
+                        padding-bottom: 10px;
+                        font-size: $normal_sm;
+                    }
+
+                    @include responsive(small) {
+                        padding-bottom: 6px;
+                        font-size: $normal_xsm;
+                    }
                 }
                 .prt_project_detail_section {
                     .prt_project_cover {
                         position: relative;
                         width: 100%;
-                        height: 755px;
+                        height: $cover_height_xl;
+
                         .prt_project_cover_image {
                             object-fit: cover;
-                            border-radius: $round-radius;
+                            height: 100%;
+                            width: 100%;
+                            border-radius: $round-radius_xl;
                         }
 
                         border: 2px solid $dark;
-                        border-radius: $round-radius;
+                        border-radius: $round-radius_xl;
+
+                        @include responsive(large) {
+                            height: $cover_height_lg;
+                            border-radius: $round-radius_lg;
+
+                            .prt_project_cover_image {
+                                border-radius: $round-radius_lg;
+                            }
+                        }
+
+                        @include responsive(medium) {
+                            height: $cover_height_md;
+                            border-radius: $round-radius_md;
+                            .prt_project_cover_image {
+                                border-radius: $round-radius_md;
+                            }
+                        }
+
+                        @include responsive(small) {
+                            height: $cover_height_sm;
+                            border-radius: $round-radius_sm;
+                            .prt_project_cover_image {
+                                border-radius: $round-radius_sm;
+                            }
+                        }
                     }
                 }
                 .prt_project_details {
                     padding-left: 10%;
                     padding-right: 10%;
-                    padding-top: 25px;
+                    padding-top: 2.5%;
                 }
             }
         }
@@ -220,7 +297,7 @@ body {
                         height: 30px;
 
                         border: 1.5px solid $dark;
-                        border-radius: $round-radius;
+                        border-radius: $round-radius_lg;
                         background-color: $dark;
                         color: $main;
                     }
@@ -315,11 +392,11 @@ body {
         height: 875px;
         .prt_image {
             object-fit: cover;
-            border-radius: $round-radius;
+            border-radius: $round-radius_lg;
         }
 
         border: 2px solid $dark;
-        border-radius: $round-radius;
+        border-radius: $round-radius_lg;
     }
 
     .prt_secondary {
@@ -331,17 +408,17 @@ body {
             height: 500px;
             .prt_image {
                 object-fit: cover;
-                border-radius: $round-radius;
+                border-radius: $round-radius_lg;
             }
 
             border: 2px solid $dark;
-            border-radius: $round-radius;
+            border-radius: $round-radius_lg;
         }
     }
 }
 
 .prt_section_divider {
-    padding-top: 150px;
+    height: 100px;
 }
 .prt_header {
     width: 100%;
@@ -354,12 +431,16 @@ body {
     .prt_menu_link {
         line-height: $line-space_lg;
 
-        @include responsive(small) {
-            line-height: $line-space_sm_md;
+        @include responsive(large) {
+            line-height: $line-space_lg;
         }
 
         @include responsive(medium) {
-            line-height: $line-space_sm_md;
+            line-height: $line-space_sm;
+        }
+
+        @include responsive(small) {
+            line-height: $line-space_sm;
         }
         letter-spacing: -0.05em;
 
@@ -375,7 +456,7 @@ body {
     height: 30px;
 
     border: 1.5px solid $dark;
-    border-radius: $round-radius;
+    border-radius: $round-radius_lg;
     transition: all 200ms ease-in-out;
 
     &:hover {
@@ -392,12 +473,16 @@ body {
         style: normal;
     }
 
-    @include responsive(small) {
-        font-size: $normal_sm_md;
+    @include responsive(large) {
+        font-size: $normal_lg;
     }
 
     @include responsive(medium) {
-        font-size: $normal_sm_md;
+        font-size: $normal_sm;
+    }
+
+    @include responsive(small) {
+        font-size: $normal_sm;
     }
 
     letter-spacing: -0.05em;
@@ -410,12 +495,16 @@ body {
         style: italic;
     }
 
-    @include responsive(small) {
-        font-size: $normal_sm_md;
+    @include responsive(large) {
+        font-size: $normal_lg;
     }
 
     @include responsive(medium) {
-        font-size: $normal_sm_md;
+        font-size: $normal_sm;
+    }
+
+    @include responsive(small) {
+        font-size: $normal_sm;
     }
 
     letter-spacing: -0.05em;
@@ -429,12 +518,16 @@ body {
         weight: 700;
     }
 
-    @include responsive(small) {
-        font-size: $normal_sm_md;
+    @include responsive(large) {
+        font-size: $normal_lg;
     }
 
     @include responsive(medium) {
-        font-size: $normal_sm_md;
+        font-size: $normal_sm;
+    }
+
+    @include responsive(small) {
+        font-size: $normal_sm;
     }
 
     letter-spacing: -0.05em;
@@ -448,12 +541,16 @@ body {
         style: normal;
     }
 
-    @include responsive(small) {
-        font-size: $normal_sm_md;
+    @include responsive(large) {
+        font-size: $normal_lg;
     }
 
     @include responsive(medium) {
-        font-size: $normal_sm_md;
+        font-size: $normal_sm;
+    }
+
+    @include responsive(small) {
+        font-size: $normal_sm;
     }
 
     letter-spacing: -0.05em;
@@ -466,12 +563,16 @@ body {
         style: normal;
     }
 
-    @include responsive(small) {
-        font-size: $content_sm_md;
+    @include responsive(large) {
+        font-size: $content_sm;
     }
 
     @include responsive(medium) {
-        font-size: $content_sm_md;
+        font-size: $content_sm;
+    }
+
+    @include responsive(small) {
+        font-size: $content_sm;
     }
 
     letter-spacing: -0.05em;
@@ -484,12 +585,16 @@ body {
         style: italic;
     }
 
-    @include responsive(small) {
-        font-size: $content_sm_md;
+    @include responsive(large) {
+        font-size: $content_sm;
     }
 
     @include responsive(medium) {
-        font-size: $content_sm_md;
+        font-size: $content_sm;
+    }
+
+    @include responsive(small) {
+        font-size: $content_sm;
     }
 
     letter-spacing: -0.05em;
@@ -503,12 +608,16 @@ body {
         style: normal;
     }
 
-    @include responsive(small) {
-        font-size: $content_sm_md;
+    @include responsive(large) {
+        font-size: $content_sm;
     }
 
     @include responsive(medium) {
-        font-size: $content_sm_md;
+        font-size: $content_sm;
+    }
+
+    @include responsive(small) {
+        font-size: $content_sm;
     }
 
     letter-spacing: -0.05em;
@@ -522,12 +631,16 @@ body {
         weight: 700;
     }
 
-    @include responsive(small) {
-        font-size: $content_sm_md;
+    @include responsive(large) {
+        font-size: $content_sm;
     }
 
     @include responsive(medium) {
-        font-size: $content_sm_md;
+        font-size: $content_sm;
+    }
+
+    @include responsive(small) {
+        font-size: $content_sm;
     }
 
     letter-spacing: -0.05em;
@@ -555,8 +668,12 @@ body {
 .prt_pf_title {
     font: {
         family: $playfair;
-        size: $title_lg;
+        size: $title_xl;
         style: normal;
+    }
+
+    @include responsive(large) {
+        font-size: $title_lg;
     }
 
     @include responsive(medium) {
@@ -566,14 +683,17 @@ body {
     @include responsive(small) {
         font-size: $title_sm;
     }
-
 }
 
 .prt_pf_title_i {
     font: {
         family: $playfair;
-        size: $title_lg;
+        size: $title_xl;
         style: italic;
+    }
+
+    @include responsive(large) {
+        font-size: $title_lg;
     }
 
     @include responsive(medium) {
@@ -583,7 +703,6 @@ body {
     @include responsive(small) {
         font-size: $title_sm;
     }
-
 }
 
 .prt_pf_content {
@@ -593,12 +712,16 @@ body {
         style: normal;
     }
 
-    @include responsive(small) {
-        font-size: $content_sm_md;
+    @include responsive(large) {
+        font-size: $content_sm;
     }
 
     @include responsive(medium) {
-        font-size: $content_sm_md;
+        font-size: $content_sm;
+    }
+
+    @include responsive(small) {
+        font-size: $content_sm;
     }
 }
 
@@ -609,12 +732,16 @@ body {
         style: italic;
     }
 
-    @include responsive(small) {
-        font-size: $content_sm_md;
+    @include responsive(large) {
+        font-size: $content_sm;
     }
 
     @include responsive(medium) {
-        font-size: $content_sm_md;
+        font-size: $content_sm;
+    }
+
+    @include responsive(small) {
+        font-size: $content_sm;
     }
 }
 
@@ -625,12 +752,16 @@ body {
         style: normal;
     }
 
-    @include responsive(small) {
-        font-size: $normal_sm_md;
+    @include responsive(large) {
+        font-size: $normal_lg;
     }
 
     @include responsive(medium) {
-        font-size: $normal_sm_md;
+        font-size: $normal_sm;
+    }
+
+    @include responsive(small) {
+        font-size: $normal_sm;
     }
 }
 
@@ -641,11 +772,41 @@ body {
         style: italic;
     }
 
-    @include responsive(small) {
-        font-size: $normal_sm_md;
+    @include responsive(large) {
+        font-size: $normal_lg;
     }
 
     @include responsive(medium) {
-        font-size: $normal_sm_md;
+        font-size: $normal_sm;
+    }
+
+    @include responsive(small) {
+        font-size: $normal_sm;
     }
 }
+
+// MEDIA QUERIES
+
+// @media  screen and (max-width: $large_screen) {
+
+//     body {
+//         background-color: red;
+//     }
+
+// }
+
+// @media  screen and (max-width: $medium_screen) {
+
+//     body {
+//         background-color: green;
+//     }
+
+// }
+
+// @media  screen and (max-width: $small_screen) {
+
+//     body {
+//         background-color: yellow;
+//     }
+
+// }

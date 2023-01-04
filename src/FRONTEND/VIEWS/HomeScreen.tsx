@@ -25,8 +25,12 @@ const HomeScreen = ({ projects }: any) => {
         <div className="prt_homescreen">
             <div className="prt_homescreen_content">
                 <TitleSection />
+                <div className="prt_section_divider"></div>
                 <AboutSection />
+                <div className="prt_section_divider"></div>
+
                 <WorkSection project={projects[0]} />
+                <div className="prt_section_divider"></div>
 
                 <ContactSection />
 
