@@ -1,5 +1,7 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 import { PRT_HOME_PAGE_SECTION } from '../src/CONSTANTS'
+import { Provider } from 'react-redux'
+import { store } from '../src/STATE AND REDUX/Store'
 
 export default function Document() {
   return (
@@ -7,7 +9,8 @@ export default function Document() {
       <Head />
       <body>
         <div className='prt_body'>
-          <Main />
+          
+            <Main />
           <NextScript />
         </div>
       </body>

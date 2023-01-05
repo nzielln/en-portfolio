@@ -9,10 +9,10 @@ import { useState } from 'react'
 
 const Home = ({ projects }: any) => {
 
-  const [showLogo, setShowLogo] = useState<boolean>(false)
-  
-  const _showLogoFunction = (show: boolean) => {
-    setShowLogo(show)
+  const [hide, setHide] = useState<boolean>(false)
+
+  const _hideHeader = (show: boolean) => {
+    setHide(show)
   }
 
   return (
@@ -23,9 +23,9 @@ const Home = ({ projects }: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main >
-        <Header showHeader={true} showLogo={ showLogo } />
-        <HomeScreen projects={projects} showLogo={ _showLogoFunction} />
-        <Footer/>
+        <Header showHeader={true} hideHeader={hide} />
+        <HomeScreen projects={projects} hideHeader={_hideHeader} />
+        <Footer />
       </main>
     </>
   )
@@ -34,7 +34,7 @@ const Home = ({ projects }: any) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
-  const {projects} = await import("../data/sample_data.json")
+  const { projects } = await import("../data/sample_data.json")
   return {
     props: {
       projects: projects

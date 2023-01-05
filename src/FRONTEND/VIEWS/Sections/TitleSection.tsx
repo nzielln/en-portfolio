@@ -10,7 +10,7 @@ import {
 } from "../../../CONSTANTS"
 import { ShowLogoAction } from "../../../PROPS AND INTERFACES/Props"
 
-const TitleSection = ({ showLogo }: ShowLogoAction) => {
+const TitleSection = ({ hideHeader }: ShowLogoAction) => {
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -20,20 +20,17 @@ const TitleSection = ({ showLogo }: ShowLogoAction) => {
     if (typeof window !== 'undefined') {
     
         let scrollButton = document.getElementById("prt_scroll_button")
-        let titleElement = document.getElementById("prt_title")
+        // let titleElement = document.getElementById("prt_title")
 
         scrollButton!.style.opacity = "0"
-        // titleElement!.style.opacity = "0"
-        console.log(scrollButton)
-    
 
         window.onscroll = () => {
             if (document.body.scrollTop > PRT_SCROLL_THRESHHOLD || document.documentElement.scrollTop > PRT_SCROLL_THRESHHOLD) {
                 scrollButton!.style.opacity = "1";
-                showLogo(false)
+                hideHeader(true)
             } else {
                 scrollButton!.style.opacity = "0";
-                showLogo(true)
+                hideHeader(false)
             }
 
 

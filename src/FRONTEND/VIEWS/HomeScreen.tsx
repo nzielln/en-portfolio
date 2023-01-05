@@ -21,17 +21,18 @@ import WorkSection from "./Sections/WorkSection";
 import ContactSection from "./Sections/ContactSection";
 import { AnyProjectsProp, ShowLogoAction } from "../../PROPS AND INTERFACES/Props";
 
-const HomeScreen = ({ projects, showLogo }: AnyProjectsProp) => {
+const HomeScreen = ({ projects, hideHeader }: AnyProjectsProp) => {
+    
 
     return (
         <div className="prt_homescreen">
             <div className="prt_homescreen_content">
-                <TitleSection showLogo={showLogo}/>
+                <TitleSection hideHeader={hideHeader}/>
                 <div className="prt_section_divider"></div>
                 <AboutSection />
                 <div className="prt_section_divider"></div>
 
-                <WorkSection project={projects[0]} />
+                <WorkSection projects={projects} />
                 <div className="prt_section_divider"></div>
 
                 <ContactSection />

@@ -15,3 +15,7 @@ export interface LinkInterface {
     title: string, 
     link: string
 }
+
+export interface ProjectCounterState {
+    value: number
+}

@@ -14,6 +14,7 @@ import {
     PRT_RESUME_LINK,
     PRT_LAST_INITALS,
     PRT_BACK_HOME,
+    PRT_NAME,
 } from "../../CONSTANTS";
 import { HeaderProp } from "../../PROPS AND INTERFACES/Props";
 import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
@@ -44,7 +45,7 @@ const MENU_ITEMS = [
     },
 ]
 
-const Header = ({ showHeader, showLogo }: HeaderProp) => {
+const Header = ({ showHeader, hideHeader }: HeaderProp) => {
     const [showMenu, setShowMenu] = useState<boolean>(false)
     const [menuIcon, setMenuIcon] = useState<IconProp>(faPlus)
     const [degrees, setDegrees] = useState<string>("0")
@@ -57,25 +58,36 @@ const Header = ({ showHeader, showLogo }: HeaderProp) => {
     }
 
     return (
-        <div className="prt_header flex items-center justify-between fixed ">
+        <div className="prt_header flex items-center justify-between fixed "
+            style={{
+                'display': `${hideHeader ? "none" : "flex"}`
+            }}
+        >
 
             {
                 showHeader ?
                     <div className="prt_header_logo prt_content_style_b"
                         style={{
-                            "visibility": `${showLogo ? "visible": "hidden"}`
+                            'visibility': `${hideHeader ? "hidden" : "visible"}`
                         }}
-                    >{PRT_LAST_INITALS}</div>
+                    >
+                        {PRT_LAST_INITALS}
+                    </div>
                     :
-                    <div className="prt_header_logo prt_content_style_b">
+                    <div className="prt_header_logo prt_content_style_b"
+                    >
                         <Link href={"/"} passHref className="flex items-center gap-2">
-                            <FontAwesomeIcon icon={faArrowLeft} size="1x"/>
-                            <h4 className="prt_normal_style_b prt_uppercase">{ PRT_BACK_HOME}</h4>
+                            <FontAwesomeIcon icon={faArrowLeft} size="1x" />
+                            <h4 className="prt_normal_style_b prt_uppercase">{PRT_BACK_HOME}</h4>
                         </Link>
                     </div>
             }
 
-            <div className="prt_header_menu flex items-center" >
+            <div className="prt_header_menu flex items-center"
+                style={{
+                    'display': `${hideHeader ? "none" : "flex"}`
+                }}
+            >
 
                 
                 <div className={`prt_menu flex items-center ${showHeader ? "" : "mr-6"}`}
@@ -93,7 +105,7 @@ const Header = ({ showHeader, showLogo }: HeaderProp) => {
                 <button aria-label="Menu"
                     onClick={() => showMenuAndTransition()}
                     style={{
-                    "display": `${showHeader ? "none"  : "block"}`
+                        "display": `${showHeader ? "none"  : "block"}`
                 }}
                 >
                     <FontAwesomeIcon icon={menuIcon} className="prt_plus_menu" size="xl" style={{

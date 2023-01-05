@@ -9,7 +9,7 @@ export type ProjectsProp = {
 
 export type AnyProjectsProp = {
     projects: any[],
-    showLogo: (showLogo: boolean) => void
+    hideHeader: (hide: boolean) => void
 }
 
 export type ButtonProp = {
@@ -18,9 +18,9 @@ export type ButtonProp = {
 
 export type HeaderProp = {
     showHeader: boolean,
-    showLogo: boolean
+    hideHeader: boolean
 }
 
 export type ShowLogoAction = {
-    showLogo: (showLogo: boolean) => void
+    hideHeader: (hide: boolean) => void
 }

@@ -4,8 +4,15 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import Header from "../../src/FRONTEND/COMPONENTS/Header";
 import Footer from "../../src/FRONTEND/COMPONENTS/Footer";
+import { useState } from "react";
+import { ShowLogoAction } from "../../src/PROPS AND INTERFACES/Props";
 
-const MoreProjectsPage = ({projects}: any) => {
+const MoreProjectsPage = ({ projects }: any) => {
+    const [hide, setHide] = useState<boolean>(false)
+
+    const _hideHeader = (show: boolean) => {
+        setHide(show)
+    }
 
     return (
         <>
@@ -15,8 +22,8 @@ const MoreProjectsPage = ({projects}: any) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main >
-                <Header showHeader={false} />
-                <Projects projects={projects} />
+                <Header showHeader={false} hideHeader={false} />
+                <Projects projects={projects} hideHeader={ _hideHeader} />
                 <Footer />
             </main>
         </>
