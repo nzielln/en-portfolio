@@ -359,7 +359,6 @@ body {
 .prt_more_projects {
     padding-top: 10%;
 
-
     .prt_project_description_details {
         margin-bottom: 50px;
     }
@@ -513,13 +512,54 @@ body {
     height: 100px;
 }
 .prt_header {
-    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 120;
+    padding: {
+        left: $padding_xl;
+        right: $padding_xl;
+    }
+
+    @include responsive(large) {
+        padding: {
+            left: $padding_lg;
+            right: $padding_lg;
+        }
+    }
+
+    @include responsive(medium) {
+        padding: {
+            left: $padding_md;
+            right: $padding_md;
+        }
+    }
+
+    @include responsive(small) {
+        padding: {
+            left: $padding_sm;
+            right: $padding_sm;
+        }
+    }
+
+    .prt_header_logo {
+        padding: {
+            top: 4px;
+            bottom: 4px;
+            left: 12px;
+            right: 12px;
+
+        }
+        border-radius: $round-radius_lg;
+        background-color: $main;
+    }
 }
 
 .prt_round_button {
     margin: {
         left: 24px;
     }
+    background-color: $main;
+
     .prt_menu_link {
         line-height: $line-space_lg;
 
@@ -547,7 +587,7 @@ body {
 
     height: 30px;
 
-    border: 1.5px solid $dark;
+    border: 2px solid $dark;
     border-radius: $round-radius_lg;
     transition: all 200ms ease-in-out;
 
@@ -877,7 +917,6 @@ body {
     }
 }
 
-
 .prt_footer_style {
     font: {
         family: $space;
@@ -897,10 +936,10 @@ body {
     letter-spacing: -0.05em;
 }
 
-
 // ANIMATIONS
 
-.prt_plus_menu, .prt_menu {
+.prt_plus_menu,
+.prt_menu {
     transition: all 500ms ease-in-out;
 }
 

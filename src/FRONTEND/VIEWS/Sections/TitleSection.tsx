@@ -8,8 +8,9 @@ import {
     PRT_HOME_DESCRIPTION_BOTTOM,
     PRT_SCROLL_THRESHHOLD
 } from "../../../CONSTANTS"
+import { ShowLogoAction } from "../../../PROPS AND INTERFACES/Props"
 
-const TitleSection = () => {
+const TitleSection = ({ showLogo }: ShowLogoAction) => {
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -19,18 +20,26 @@ const TitleSection = () => {
     if (typeof window !== 'undefined') {
     
         let scrollButton = document.getElementById("prt_scroll_button")
+        let titleElement = document.getElementById("prt_title")
+
         scrollButton!.style.opacity = "0"
+        // titleElement!.style.opacity = "0"
         console.log(scrollButton)
     
 
         window.onscroll = () => {
             if (document.body.scrollTop > PRT_SCROLL_THRESHHOLD || document.documentElement.scrollTop > PRT_SCROLL_THRESHHOLD) {
                 scrollButton!.style.opacity = "1";
+                showLogo(false)
             } else {
                 scrollButton!.style.opacity = "0";
+                showLogo(true)
             }
+
+
         }
     }
+
 
     return (
         <div
@@ -44,7 +53,7 @@ const TitleSection = () => {
 
                 </div>
             </div>
-            <div className="prt_home_page_row_title grid md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 md:gap-1 lg:gap-2 xl:gap-3 md:row-span-2 md:items-center items-start">
+            <div className="prt_home_page_row_title grid md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 md:gap-1 lg:gap-2 xl:gap-3 md:row-span-2 md:items-center items-start" id="prt_title">
                 <div className="prt_name_col md:col-start-2 md:col-span-5 lg:col-start-3 lg:col-span-6 xl:col-start-3 xl:col-span-6">
                     <h1 className="prt_title_name prt_pf_title_i">e<span className="prt_pf_title">ll</span>ah <br /> nz<span className="prt_pf_title">ik</span>oba</h1>
                 </div>

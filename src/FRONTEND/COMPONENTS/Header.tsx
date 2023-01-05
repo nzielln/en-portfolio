@@ -15,10 +15,9 @@ import {
     PRT_LAST_INITALS,
     PRT_BACK_HOME,
 } from "../../CONSTANTS";
-import { PageProp } from "../../PROPS AND INTERFACES/Props";
+import { HeaderProp } from "../../PROPS AND INTERFACES/Props";
 import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { Menu, Transition } from "@headlessui/react";
 import { useState } from "react";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
@@ -45,7 +44,7 @@ const MENU_ITEMS = [
     },
 ]
 
-const Header = ({ showHeader }: PageProp) => {
+const Header = ({ showHeader, showLogo }: HeaderProp) => {
     const [showMenu, setShowMenu] = useState<boolean>(false)
     const [menuIcon, setMenuIcon] = useState<IconProp>(faPlus)
     const [degrees, setDegrees] = useState<string>("0")
@@ -58,11 +57,15 @@ const Header = ({ showHeader }: PageProp) => {
     }
 
     return (
-        <div className="prt_header flex items-center justify-between">
+        <div className="prt_header flex items-center justify-between fixed ">
 
             {
                 showHeader ?
-                    <div className="prt_header_logo prt_content_style_b">{PRT_LAST_INITALS}</div>
+                    <div className="prt_header_logo prt_content_style_b"
+                        style={{
+                            "visibility": `${showLogo ? "visible": "hidden"}`
+                        }}
+                    >{PRT_LAST_INITALS}</div>
                     :
                     <div className="prt_header_logo prt_content_style_b">
                         <Link href={"/"} passHref className="flex items-center gap-2">

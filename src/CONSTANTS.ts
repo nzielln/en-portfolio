@@ -61,4 +61,8 @@ export const PRT_MORE_SPAN = "7"
 export const PRT_IMAGES_FOLDER = "IMAGES"
 export const PRT_DETAIL_SPAN = "5"
 
-export const PRT_SCROLL_THRESHHOLD = 50
+export const PRT_SCROLL_THRESHHOLD = 100
+
+export const PRT_SMALL_WIDTH = 768
+export const PRT_MEDIUM_WIDTH = 1024
+export const PRT_LARGE_WIDTH = 1280

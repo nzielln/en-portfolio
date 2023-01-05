@@ -7,11 +7,20 @@ export type ProjectsProp = {
     projects: ProjectInterface[]
 }
 
+export type AnyProjectsProp = {
+    projects: any[],
+    showLogo: (showLogo: boolean) => void
+}
+
 export type ButtonProp = {
     link: LinkInterface
 }
 
-export type PageProp = {
+export type HeaderProp = {
+    showHeader: boolean,
+    showLogo: boolean
+}
 
-    showHeader: boolean
+export type ShowLogoAction = {
+    showLogo: (showLogo: boolean) => void
 }

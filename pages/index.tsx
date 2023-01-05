@@ -5,8 +5,16 @@ import HomeScreen from '../src/FRONTEND/VIEWS/HomeScreen'
 import { GetStaticProps } from 'next'
 import Header from '../src/FRONTEND/COMPONENTS/Header'
 import Footer from '../src/FRONTEND/COMPONENTS/Footer'
+import { useState } from 'react'
 
-const Home = ({projects}: any) => {
+const Home = ({ projects }: any) => {
+
+  const [showLogo, setShowLogo] = useState<boolean>(false)
+  
+  const _showLogoFunction = (show: boolean) => {
+    setShowLogo(show)
+  }
+
   return (
     <>
       <Head>
@@ -15,8 +23,8 @@ const Home = ({projects}: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main >
-        <Header showHeader={true} />
-        <HomeScreen projects={projects} />
+        <Header showHeader={true} showLogo={ showLogo } />
+        <HomeScreen projects={projects} showLogo={ _showLogoFunction} />
         <Footer/>
       </main>
     </>
