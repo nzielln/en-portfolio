@@ -20,14 +20,14 @@ body {
 }
 @media screen and (max-width: 1024px) {
   body {
-    padding-left: 48px;
-    padding-right: 48px;
+    padding-left: 54px;
+    padding-right: 54px;
   }
 }
 @media screen and (max-width: 768px) {
   body {
-    padding-left: 46px;
-    padding-right: 46px;
+    padding-left: 54px;
+    padding-right: 54px;
   }
 }
 
@@ -56,8 +56,12 @@ body {
     line-height: 80px;
   }
 }
-.prt_homescreen .prt_homescreen_content .prt_home_page .prt_home_page_row_desc .prt_back_to_top .prt_icon {
-  color: #2d2d34;
+.prt_homescreen .prt_homescreen_content .prt_home_page .prt_home_page_row_desc .prt_back_to_top button {
+  width: 75px;
+  height: 75px;
+  background-color: #f45d59;
+  border-radius: 50%;
+  color: #e2dcde;
 }
 .prt_homescreen .prt_homescreen_content .prt_home_page .prt_home_page_row_desc .prt_back_to_top .prt_label {
   visibility: hidden;
@@ -78,7 +82,7 @@ body {
   margin-left: 15px;
 }
 .prt_homescreen .prt_homescreen_content .prt_work_page .prt_work_title {
-  margin-bottom: 40px;
+  margin-bottom: 15vh;
 }
 .prt_homescreen .prt_homescreen_content .prt_work_page .prt_project_section .prt_button {
   height: 100%;
@@ -205,13 +209,15 @@ body {
 }
 
 .prt_more_projects {
-  padding-top: 5%;
-}
-.prt_more_projects .prt_more_projects_title {
-  height: 50px;
-  margin-bottom: 50px;
+  padding-top: 10%;
 }
 .prt_more_projects .prt_project_description_details {
+  margin-bottom: 50px;
+}
+
+.prt_separator {
+  border-bottom: 1.5px solid #2d2d34;
+  width: 35vw;
   margin-bottom: 50px;
 }
 
@@ -235,6 +241,9 @@ body {
   color: transparent;
 }
 
+.prt_single_project {
+  padding-bottom: 25%;
+}
 .prt_single_project .prt_single_project_header {
   width: 100%;
   margin-bottom: 75px;
@@ -243,13 +252,42 @@ body {
 .prt_single_project .prt_primary_image {
   position: relative;
   width: 100%;
-  height: 875px;
+  height: 50.55vw;
   border: 2px solid #2d2d34;
   border-radius: 20px;
 }
 .prt_single_project .prt_primary_image .prt_image {
   object-fit: cover;
+  height: 100%;
+  width: 100%;
   border-radius: 20px;
+}
+@media screen and (max-width: 1280px) {
+  .prt_single_project .prt_primary_image {
+    height: 50.55vw;
+    border-radius: 20px;
+  }
+  .prt_single_project .prt_primary_image .prt_project_cover_image {
+    border-radius: 20px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .prt_single_project .prt_primary_image {
+    height: 56vw;
+    border-radius: 20px;
+  }
+  .prt_single_project .prt_primary_image .prt_project_cover_image {
+    border-radius: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .prt_single_project .prt_primary_image {
+    height: 54.5vw;
+    border-radius: 20px;
+  }
+  .prt_single_project .prt_primary_image .prt_project_cover_image {
+    border-radius: 20px;
+  }
 }
 .prt_single_project .prt_secondary {
   width: 100%;
@@ -257,13 +295,50 @@ body {
 }
 .prt_single_project .prt_secondary .prt_secondary_image {
   position: relative;
-  height: 500px;
+  width: 60%;
+  height: 36vw;
   border: 2px solid #2d2d34;
   border-radius: 20px;
 }
 .prt_single_project .prt_secondary .prt_secondary_image .prt_image {
   object-fit: cover;
   border-radius: 20px;
+}
+@media screen and (max-width: 1280px) {
+  .prt_single_project .prt_secondary .prt_secondary_image {
+    height: 36vw;
+    border-radius: 20px;
+  }
+  .prt_single_project .prt_secondary .prt_secondary_image .prtimage {
+    border-radius: 20px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .prt_single_project .prt_secondary .prt_secondary_image {
+    height: 42vw;
+    border-radius: 20px;
+  }
+  .prt_single_project .prt_secondary .prt_secondary_image .prt_image {
+    border-radius: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .prt_single_project .prt_secondary .prt_secondary_image {
+    height: 54.5vw;
+    border-radius: 20px;
+    width: 100%;
+  }
+  .prt_single_project .prt_secondary .prt_secondary_image .prt_image {
+    border-radius: 20px;
+  }
+}
+.prt_single_project .prt_secondary .prt_details {
+  width: 50%;
+}
+@media screen and (max-width: 768px) {
+  .prt_single_project .prt_secondary .prt_details {
+    width: 100%;
+  }
 }
 
 .prt_section_divider {
@@ -628,6 +703,29 @@ body {
   .prt_pf_normal_i {
     font-size: 14px;
   }
+}
+
+.prt_footer_style {
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  font-style: normal;
+  letter-spacing: -0.05em;
+}
+
+.prt_footer_style {
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+.prt_plus_menu, .prt_menu {
+  transition: all 500ms ease-in-out;
+}
+
+.prt_plus_menu {
+  color: #2d2d34;
 }
 
 /*# sourceMappingURL=style.css.map */

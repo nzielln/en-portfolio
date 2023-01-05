@@ -10,3 +10,8 @@ export type ProjectsProp = {
 export type ButtonProp = {
     link: LinkInterface
 }
+
+export type PageProp = {
+
+    showHeader: boolean
+}

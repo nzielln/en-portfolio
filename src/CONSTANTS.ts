@@ -10,12 +10,14 @@ export const PRT_CONTACT_PAGE_SECTION = "contact_section"
 export const PRT_WORK_PAGE_SECTION = "work_section"
 export const PRT_BACK_TO_MAIN = "Back to main site"
 export const PRT_BACK_TO_HOME = "Back to Home"
+export const PRT_BACK_HOME = "Back Home"
 export const PRT_LAST_INITALS = "EN"
 
 // Home page
 export const PRT_YEAR = "2023"
 export const PRT_LOCATION = "Boston"
 export const PRT_NAME = "Ellah Nzikoba"
+export const PRT_LOCATION_STATE = "Boston, Massachusetts"
 export const PRT_FIRST_NAME = "Ellah"
 export const PRT_LAST_NAME = "Nzikoba"
 
@@ -58,3 +60,5 @@ export const PRT_RESUME_LINK = "/RESUME/" + PRT_RESUME_NAME
 export const PRT_MORE_SPAN = "7"
 export const PRT_IMAGES_FOLDER = "IMAGES"
 export const PRT_DETAIL_SPAN = "5"
+
+export const PRT_SCROLL_THRESHHOLD = 50

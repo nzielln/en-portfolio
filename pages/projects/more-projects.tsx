@@ -3,6 +3,7 @@ import Projects from "../../src/FRONTEND/VIEWS/Projects";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import Header from "../../src/FRONTEND/COMPONENTS/Header";
+import Footer from "../../src/FRONTEND/COMPONENTS/Footer";
 
 const MoreProjectsPage = ({projects}: any) => {
 
@@ -13,9 +14,10 @@ const MoreProjectsPage = ({projects}: any) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main>
-                <Header />
+            <main >
+                <Header showHeader={false} />
                 <Projects projects={projects} />
+                <Footer />
             </main>
         </>
     )

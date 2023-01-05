@@ -22,8 +22,8 @@ const SingleProject = ({ project }: ProjectProp) => {
 
             </div>
 
-            <div className="prt_secondary grid grid-cols-12 md:gap-1 lg:gap-2 xl:gap-3">
-                <div className="prt_secondary_image col-start-1 col-span-7">
+            <div className="prt_secondary flex sm:gap-4 md:gap-6 lg:gap-8 md:flex-row flex-col-reverse">
+                <div className="prt_secondary_image ">
                     <Image
                         src={`/${PRT_IMAGES_FOLDER}/${[project.images.secondary]}`}
                         alt=""
@@ -31,7 +31,7 @@ const SingleProject = ({ project }: ProjectProp) => {
                         className="prt_image"></Image>
                 </div>
 
-                <div className="col-span-5">
+                <div className="prt_details ">
                     <ProjectDetails project={project} />
                 </div>
 

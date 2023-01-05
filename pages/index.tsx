@@ -4,6 +4,7 @@ import Script from 'next/script'
 import HomeScreen from '../src/FRONTEND/VIEWS/HomeScreen'
 import { GetStaticProps } from 'next'
 import Header from '../src/FRONTEND/COMPONENTS/Header'
+import Footer from '../src/FRONTEND/COMPONENTS/Footer'
 
 const Home = ({projects}: any) => {
   return (
@@ -14,8 +15,9 @@ const Home = ({projects}: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main >
-        <Header />
+        <Header showHeader={true} />
         <HomeScreen projects={projects} />
+        <Footer/>
       </main>
     </>
   )

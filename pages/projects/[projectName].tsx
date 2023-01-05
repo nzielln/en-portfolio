@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Header from "../../src/FRONTEND/COMPONENTS/Header";
 import SingleProject from "../../src/FRONTEND/VIEWS/SingleProject";
+import Footer from "../../src/FRONTEND/COMPONENTS/Footer";
 
 const ProjectInfoPage = ({ project }: any) => {
 
@@ -14,8 +15,9 @@ const ProjectInfoPage = ({ project }: any) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <Header />
+                <Header showHeader={false} />
                 <SingleProject project={project} />
+                <Footer />
             </main>
         </>
     )

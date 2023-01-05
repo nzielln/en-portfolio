@@ -38,7 +38,7 @@ const ContactSection = () => {
                         <input type="submit" form="prt_contact_form_id" value={"Submit"} className="prt_contact_form_button prt_normal_style prt_uppercase" />
                     </div>
                 </div>
-                <div className="prt_contact_links md:col-start-7 md:col-span-2 lg:col-start-9 lg:col-span-2 xl:col-start-10 xl:col-span-3 flex flex-col justify-end md:mt-0 md:mb-0 mt-12 mb-28 md:pb-14 md:text-left text-right ">
+                <div className="prt_contact_links md:col-start-7 md:col-span-2 lg:col-start-9 lg:col-span-2 xl:col-start-11 xl:col-span-2 flex flex-col justify-end md:mt-0 md:mb-0 mt-12 mb-28 md:pb-14 md:text-left text-right ">
                     <a href={PRT_LINKEDIN_LINK} className="prt_external_link prt_normal_style prt_uppercase" target="_blank" rel="noreferrer">Linked<span className="prt_pf_normal_i prt_lowercase">in</span></a>
                     <a href={PRT_GITHUB_LINK} className="prt_external_link prt_normal_style prt_uppercase" target="_blank" rel="noreferrer">G<span className="prt_pf_normal_i prt_lowercase">it</span>hub</a>
                     <a href={PRT_BEHANCE_LINK} className="prt_external_link prt_normal_style prt_uppercase" target="_blank" rel="noreferrer"><span className="prt_pf_normal_i prt_lowercase">Be</span>hance</a>

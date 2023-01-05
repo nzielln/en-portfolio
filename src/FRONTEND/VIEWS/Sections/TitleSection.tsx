@@ -5,16 +5,31 @@ import {
     PRT_HOME_ROLE_DESIGNER,
     PRT_LOCATION, PRT_YEAR,
     PRT_HOME_DESCRIPTION_TOP,
-    PRT_HOME_DESCRIPTION_BOTTOM
+    PRT_HOME_DESCRIPTION_BOTTOM,
+    PRT_SCROLL_THRESHHOLD
 } from "../../../CONSTANTS"
 
 const TitleSection = () => {
-
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
+    }
+    if (typeof window !== 'undefined') {
+    
+        let scrollButton = document.getElementById("prt_scroll_button")
+        scrollButton!.style.opacity = "0"
+        console.log(scrollButton)
+    
+
+        window.onscroll = () => {
+            if (document.body.scrollTop > PRT_SCROLL_THRESHHOLD || document.documentElement.scrollTop > PRT_SCROLL_THRESHHOLD) {
+                scrollButton!.style.opacity = "1";
+            } else {
+                scrollButton!.style.opacity = "0";
+            }
+        }
     }
 
     return (
@@ -36,23 +51,23 @@ const TitleSection = () => {
             </div>
             <div className="prt_home_page_row_desc">
                 <div className="prt_location_desc_col md:grid md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 md:gap-1 lg:gap-2 xl:gap-3 md:justify-between h-2/4 flex flex-col-reverse justify-end">
-                    <div className="prt_location col-span-1 md:pt-0 pt-4">
+                    <div className="prt_location col-start-1 col-span-1 md:pt-0 pt-4">
                         <h4 className="prt_normal_style prt_uppercase prt_yl_top">{PRT_LOCATION}</h4>
                         <h4 className="prt_normal_style_i prt_uppercase">{PRT_YEAR}</h4>
                     </div>
 
-                    <div className="prt_desc prt_uppercase md:col-start-5 md:col-span-4 lg:col-start-7 lg:col-span-4 xl:col-start-9 xl:col-span-4 flex md:items-end items-start flex-col ">
+                    <div className="prt_desc prt_uppercase md:col-start-5 md:col-span-4 lg:col-start-6 lg:col-span-4 xl:col-start-9 xl:col-span-4 flex md:items-end items-start flex-col ">
                         <h3 className="prt_content_style">{PRT_HOME_DESCRIPTION_TOP}</h3>
                         <h3 className="prt_content_style_i">{PRT_HOME_DESCRIPTION_BOTTOM}</h3>
                     </div>
                 </div>
-                <div className="prt_back_to_top fixed bottom-2 right-4">
+                <div className="prt_back_to_top fixed bottom-2 right-4 flex justify-center" id="prt_scroll_button">
                     <button
                         onClick={() => scrollToTop()}
                         aria-label="Back To Top"
                     >
                         <FontAwesomeIcon icon={faArrowUp} className="prt_icon" />
-                        <h5 className="prt_label prt_normal_style prt_uppercase">Back To Top</h5>
+                        <h5 className="prt_label prt_normal_style prt_uppercase">Top</h5>
                     </button>
                 </div>
             </div>

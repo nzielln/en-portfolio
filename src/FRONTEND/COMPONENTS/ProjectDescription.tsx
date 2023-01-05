@@ -6,16 +6,20 @@ import ProjectDetails from "./ProjectDetails"
 const ProjectDescription = ({ project }: ProjectProp) => {
 
     return (
-        <div className="prt_project_description grid grid-cols-12 md:gap-1 lg:gap-2 xl:gap-3">
-            <div className="prt_project_title col-start-2 col-span-3">
-                <h4 className="prt_content_style_b prt_uppercase">{project.title}</h4>
-                <h4 className="prt_pf_content_i prt_lowercase">{project.type}</h4>
-            </div>
+        <>
+            <div className="prt_project_description md:grid md:grid-cols-12 md:gap-1 ">
+                <div className="prt_project_title md:col-start-2 md:col-span-4 xl:col-start-2 xl:col-span-3">
+                    <h4 className="prt_content_style_b prt_uppercase">{project.title}</h4>
+                    <h4 className="prt_pf_content_i prt_lowercase md:mb-0 mb-12">{project.type}</h4>
+                </div>
 
-            <div className="prt_project_description_details col-start-5 col-span-7">
-                <ProjectDetails project={project} />
+                <div className="prt_project_description_details md:col-start-6 md:col-span-6">
+                    <ProjectDetails project={project} />
+                </div>
             </div>
-        </div>
+            <div className="prt_separator md:invisible"></div>
+
+        </>
     )
 }
 
