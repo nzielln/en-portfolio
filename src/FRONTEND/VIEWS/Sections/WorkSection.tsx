@@ -10,54 +10,45 @@ import { useSelector, useDispatch } from "react-redux"
 import { ProjectsProp } from "../../../PROPS AND INTERFACES/Props"
 import { useEffect, useState } from "react"
 import { nextProjectAction, prevProjectAction, resetProjectsAction, setProjectsAction } from "../../../STATE AND REDUX/ProjectActions"
+import { _useDispatch, _useSelector } from "../../../STATE AND REDUX/Store"
+import { counter } from "../../../STATE AND REDUX/ProjectCounterReducer"
+import { TypeEnumType } from "../../../Helpers"
 
 const WorkSection = ({ projects }: ProjectsProp) => {
 
-    const dispatch = useDispatch()
-    const projectCounter = useSelector((state: any) => state.projectCounter.value)
+    const dispatch = _useDispatch()
+    const projectCounter = _useSelector(counter)
     const [project, setProject] = useState<any>(null)
     const constant = 1
 
     useEffect(() => {
-        console.log("UPDATING!!")
 
-        setProject(projects[projectCounter])
-            nextProjectAction(dispatch)
-        
+        setProject(projects[projectCounter]) 
+        nextProjectAction(dispatch)
+
     }, [constant])
 
 
     const getNextProject = () => {
-        console.log("CURRENT COUNTER: " + projectCounter + "ITEMS: " + projects.length)
-        console.log("GETTING NEXT")
+        setProject(projects[projectCounter])
+        nextProjectAction(dispatch)
 
         if (projectCounter === projects.length - 1) {
-            console.log("NEXT LIMIT REACHED! RESETTING")
-            resetProjectsAction(dispatch).then(() => {
-                console.log(projectCounter)
-                setProject(projects[projectCounter])
-                nextProjectAction(dispatch)
-            })
-        } else {
-            setProject(projects[projectCounter])
-            nextProjectAction(dispatch)
+
+            setProjectsAction(dispatch, 0)
         }
-        
-        
+
     }
 
     const getPrevProject = () => {
-        console.log("CURRENT COUNTER: " + projectCounter + " ITEMS: " + projects.length)
-        console.log("GET PREV")
-
-        if (projectCounter === 0) {
-            console.log("PREV LIMIT REACHED! RESETTING")
-            setProjectsAction(dispatch, projects.length - 1)
-            setProject(projects[projectCounter])
-        }
 
         setProject(projects[projectCounter])
         prevProjectAction(dispatch)
+
+        if (projectCounter == 0) {
+            setProjectsAction(dispatch, projects.length - 1)
+
+        }
     }
 
 
@@ -89,7 +80,7 @@ const WorkSection = ({ projects }: ProjectsProp) => {
                             </Link>
                             <div className="prt_project_details flex justify-between">
                                 <h4 className="prt_project_title_small prt_content_style_b prt_uppercase">{project.title} </h4>
-                                <h4 className="prt_project_type prt_content_style prt_uppercase">{project.type}</h4>
+                                <h4 className="prt_project_type prt_content_style prt_uppercase">{TypeEnumType(project.type)}</h4>
                             </div></>
                         : null}
                 </div>

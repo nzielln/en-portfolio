@@ -72,3 +72,16 @@ export const PRT_NEXT_PROJECT_ACTION = "NEXT_ACTION"
 export const PRT_PREV_PROJECT_ACTION = "PREV_ACTION"
 export const PRT_SET_PROJECT_ACTION = "SET_ACTION"
 export const PRT_RESET_PROJECT_ACTION = "RESET_ACTION"
+
+
+// TYPES
+
+export const PRT_WEB_APPLICATION = "Web Application"
+export const PRT_WEB_DEVELOPMENT = "Web Development"
+export const PRT_WEB_DESIGN = "Web Design"
+export const PRT_IOS = "iOS"
+export const PRT_ANDRIOD = "Android"
+export const PRT_SWE = "Software Engineering"
+export const PRT_OOP = "Object-Oriented Programming"
+export const PRT_COMPUTER_SYSTEMS = "Computer Systems"
+

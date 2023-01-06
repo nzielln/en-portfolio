@@ -1,9 +1,4 @@
-import {
-    legacy_createStore as createStore,
-    applyMiddleware,
-    Store,
-    combineReducers,
-} from "@reduxjs/toolkit"
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit"
 import thunk from "redux-thunk"
 import { ProjectCounterState } from "../PROPS AND INTERFACES/Interfaces"
 import {
@@ -12,48 +7,27 @@ import {
     PRT_RESET_PROJECT_ACTION,
     PRT_SET_PROJECT_ACTION,
 } from "../CONSTANTS"
-
-const initialCounterState: ProjectCounterState = {
-    value: 0,
-}
-
-const ProjectReducer = (
-    state: ProjectCounterState = initialCounterState,
-    action: any
-): ProjectCounterState => {
-    switch (action.type) {
-        case PRT_NEXT_PROJECT_ACTION:
-            return {
-                value: state.value + 1,
-            }
-        case PRT_PREV_PROJECT_ACTION:
-            return {
-                value: state.value - 1,
-            }
-        case PRT_SET_PROJECT_ACTION:
-            console.log(action.value)
-            return {
-                value: action.value,
-            }
-        case PRT_RESET_PROJECT_ACTION:
-            console.log("REDUCER: RESETTING")
-            return {
-                
-                value: 0,
-            }
-        default:
-            return state
-    }
-}
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux"
+import ProjectCounterReducer from "./ProjectCounterReducer"
+// STORE
 
 
-const reducers = combineReducers({
-    projectCounter: ProjectReducer
+export const store = configureStore({
+    reducer: {
+        projectCounter: ProjectCounterReducer
+    },
 })
 
-export const store: Store<any, any> & {
-    dispatch: any 
-} = createStore(reducers, applyMiddleware(thunk))
-
+export type AppDispatch = typeof store.dispatch
 export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = ReturnType<typeof store.dispatch>
+export type AppThunk<ReturnType = void> = ThunkAction<
+    ReturnType,
+    RootState,
+    unknown,
+    Action<string>
+>
+
+// HOOKS
+
+export const _useDispatch = () => useDispatch<AppDispatch>()
+export const _useSelector: TypedUseSelectorHook<RootState> = useSelector

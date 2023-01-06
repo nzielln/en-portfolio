@@ -1,4 +1,7 @@
+import { PRT_WEB_APPLICATION } from "../CONSTANTS"
+
 export interface ProjectInterface {
+    id: string,
     title: string,
     type: string,
     tools: string[],
@@ -16,6 +19,6 @@ export interface LinkInterface {
     link: string
 }
 
-export interface ProjectCounterState {
+export type ProjectCounterState = {
     value: number
 }

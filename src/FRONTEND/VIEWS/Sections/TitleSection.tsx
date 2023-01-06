@@ -18,18 +18,24 @@ const TitleSection = ({ hideHeader }: ShowLogoAction) => {
         });
     }
     if (typeof window !== 'undefined') {
-    
+
         let scrollButton = document.getElementById("prt_scroll_button")
         // let titleElement = document.getElementById("prt_title")
 
-        scrollButton!.style.opacity = "0"
+        if (scrollButton) {
+            scrollButton!.style.opacity = "0"
+        }
 
         window.onscroll = () => {
             if (document.body.scrollTop > PRT_SCROLL_THRESHHOLD || document.documentElement.scrollTop > PRT_SCROLL_THRESHHOLD) {
-                scrollButton!.style.opacity = "1";
+                if (scrollButton) {
+                    scrollButton!.style.opacity = "1"
+                }
                 hideHeader(true)
             } else {
-                scrollButton!.style.opacity = "0";
+                if (scrollButton) {
+                    scrollButton!.style.opacity = "0"
+                }
                 hideHeader(false)
             }
 
@@ -67,13 +73,14 @@ const TitleSection = ({ hideHeader }: ShowLogoAction) => {
                         <h3 className="prt_content_style_i">{PRT_HOME_DESCRIPTION_BOTTOM}</h3>
                     </div>
                 </div>
-                <div className="prt_back_to_top fixed bottom-2 right-4 flex justify-center" id="prt_scroll_button">
+                <div className="prt_back_to_top fixed bottom-2 right-4 flex justify-centerm items-center" id="prt_scroll_button">
                     <button
                         onClick={() => scrollToTop()}
                         aria-label="Back To Top"
+                        className="flex flex-col items-center justify-center"
                     >
-                        <FontAwesomeIcon icon={faArrowUp} className="prt_icon" />
-                        <h5 className="prt_label prt_normal_style prt_uppercase">Top</h5>
+                        <FontAwesomeIcon icon={faArrowUp} className="prt_icon" size="xs"/>
+                        <h5 className="prt_label prt_normal_style_xs prt_uppercase">Top</h5>
                     </button>
                 </div>
             </div>

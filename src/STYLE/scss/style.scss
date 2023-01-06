@@ -161,20 +161,16 @@ body {
             .prt_home_page_row_desc {
                 .prt_back_to_top {
                     button {
-                        width: 75px;
-                        height: 75px;
-                        background-color: $red;
+                        width: 35px;
+                        height: 35px;
                         border-radius: 50%;
-                        color: $main;
+                        color: $dark;
                     }
 
                     .prt_label {
-                        visibility: hidden;
-                    }
-
-                    &:hover .prt_label {
                         visibility: visible;
                     }
+
                 }
             }
         }
@@ -410,6 +406,45 @@ body {
         width: 100%;
         margin-bottom: 75px;
         margin-top: 75px;
+
+        .prt_title {
+            width: 75%;
+        }
+
+        .prt_project_navigation {
+            width: 25%;
+
+            button {
+                background-color: $main;
+                border-radius: $round-radius_sm;
+                border: 1.5px solid $main;
+                padding: 5px;
+
+                &:hover {
+                    border: 1.5px solid $dark;
+                    background-color: $dark;
+                }
+
+                &:hover .prt_icon {
+                    color: $main;
+                }
+
+
+            }
+
+            .prt_prev {
+                padding-right: 10px;
+            }
+
+            .prt_next {
+                padding-left: 10px;
+            }
+
+
+            .prt_icon {
+                padding: 5px;
+            }
+        }
     }
 
     .prt_primary_image {
@@ -899,6 +934,14 @@ body {
 
     @include responsive(small) {
         font-size: $normal_sm;
+    }
+}
+.prt_normal_style_xs {
+    font: {
+        family: $space;
+        size: $normal_xsm;
+        style: normal;
+        weight: 700;
     }
 }
 

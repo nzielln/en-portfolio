@@ -21,6 +21,8 @@ import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontaw
 import { faPlus, faMinus, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import styled from "styled-components"
+
 
 const MENU_ITEMS = [
     {
@@ -53,9 +55,10 @@ const Header = ({ showHeader, hideHeader }: HeaderProp) => {
     const showMenuAndTransition = () => {
         setDegrees(degrees === "0" ? "-90" : "0")
         setShowMenu(!showMenu)
-        setMenuIcon( menuIcon === faPlus ? faMinus: faPlus)
+        setMenuIcon(menuIcon === faPlus ? faMinus : faPlus)
 
     }
+
 
     return (
         <div className="prt_header flex items-center justify-between fixed "
@@ -89,7 +92,7 @@ const Header = ({ showHeader, hideHeader }: HeaderProp) => {
                 }}
             >
 
-                
+
                 <div className={`prt_menu flex items-center ${showHeader ? "" : "mr-6"}`}
                     style={{
                         "opacity": `${showHeader ? "1" : showMenu ? "1" : "0"}`
@@ -100,23 +103,23 @@ const Header = ({ showHeader, hideHeader }: HeaderProp) => {
                             return <RoundButton link={item} key={item.title} />
                         })
                     }
-                    </div>
-                
+                </div>
+
                 <button aria-label="Menu"
                     onClick={() => showMenuAndTransition()}
                     style={{
-                        "display": `${showHeader ? "none"  : "block"}`
-                }}
+                        "display": `${showHeader ? "none" : "block"}`
+                    }}
                 >
                     <FontAwesomeIcon icon={menuIcon} className="prt_plus_menu" size="xl" style={{
                         "transform": `rotate(${degrees}deg)`
-                    }}/>
+                    }} />
                 </button>
 
 
 
             </div>
-            
+
         </div>
     )
 

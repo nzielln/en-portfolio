@@ -26,7 +26,7 @@ const Projects = ({ projects, hideHeader }: AnyProjectsProp) => {
             <div className="prt_more_projects_content row-span-5">
                 {
                     projects.map(project => {
-                        return <ProjectDescription project={project} key="" />
+                        return <ProjectDescription project={project} key={project.id} />
                     })
                 }
             </div>

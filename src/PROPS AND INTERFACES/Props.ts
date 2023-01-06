@@ -1,9 +1,14 @@
 import { LinkInterface, ProjectInterface } from "./Interfaces"
 
 export type ProjectProp = {
-    project: ProjectInterface
+    project: ProjectInterface,
 }
 export type ProjectsProp = {
+    projects: ProjectInterface[],
+}
+
+export type SingleProjectsProp = {
+    project: ProjectInterface
     projects: ProjectInterface[]
 }
 

@@ -6,6 +6,7 @@ import Header from "../../src/FRONTEND/COMPONENTS/Header";
 import Footer from "../../src/FRONTEND/COMPONENTS/Footer";
 import { useState } from "react";
 import { ShowLogoAction } from "../../src/PROPS AND INTERFACES/Props";
+import { getAcademicProjects } from "../../prisma/ProjectService";
 
 const MoreProjectsPage = ({ projects }: any) => {
     const [hide, setHide] = useState<boolean>(false)
@@ -34,7 +35,7 @@ const MoreProjectsPage = ({ projects }: any) => {
 export default MoreProjectsPage
 
 export const getStaticProps: GetStaticProps = async () => {
-    const { more_projects } = await import("../../data/sample_data.json")
+    const more_projects = await getAcademicProjects()
 
     return {
         props: {

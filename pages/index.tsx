@@ -6,6 +6,7 @@ import { GetStaticProps } from 'next'
 import Header from '../src/FRONTEND/COMPONENTS/Header'
 import Footer from '../src/FRONTEND/COMPONENTS/Footer'
 import { useState } from 'react'
+import { getProjects } from '../prisma/ProjectService'
 
 const Home = ({ projects }: any) => {
 
@@ -34,7 +35,7 @@ const Home = ({ projects }: any) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { projects } = await import("../data/sample_data.json")
+  const projects = await getProjects()
   return {
     props: {
       projects: projects

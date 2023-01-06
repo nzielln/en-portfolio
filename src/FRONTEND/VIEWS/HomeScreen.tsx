@@ -22,8 +22,6 @@ import ContactSection from "./Sections/ContactSection";
 import { AnyProjectsProp, ShowLogoAction } from "../../PROPS AND INTERFACES/Props";
 
 const HomeScreen = ({ projects, hideHeader }: AnyProjectsProp) => {
-    
-
     return (
         <div className="prt_homescreen">
             <div className="prt_homescreen_content">

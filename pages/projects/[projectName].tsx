@@ -4,8 +4,9 @@ import Link from "next/link";
 import Header from "../../src/FRONTEND/COMPONENTS/Header";
 import SingleProject from "../../src/FRONTEND/VIEWS/SingleProject";
 import Footer from "../../src/FRONTEND/COMPONENTS/Footer";
+import { getProjects } from "../../prisma/ProjectService";
 
-const ProjectInfoPage = ({ project }: any) => {
+const ProjectInfoPage = ({ projects, project }: any) => {
 
     return (
         <>
@@ -15,8 +16,8 @@ const ProjectInfoPage = ({ project }: any) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <Header showHeader={false} />
-                <SingleProject project={project} />
+                <Header showHeader={false} hideHeader={false} />
+                <SingleProject project={project} projects={ projects} />
                 <Footer />
             </main>
         </>
@@ -27,7 +28,7 @@ export default ProjectInfoPage
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
-    const { projects } = await import("../../data/sample_data.json")
+    const projects = await getProjects()
     const paths = projects.map(project => {
         return {
             params: {
@@ -44,10 +45,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const { projects } = await import("../../data/sample_data.json")
+    const projects = await getProjects()
 
     return {
         props: {
+            projects: projects,
             project: projects.filter(pro => {
                 return pro.title.toLowerCase() === context.params?.projectName
             })[0]

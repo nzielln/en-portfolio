@@ -57,16 +57,12 @@ body {
   }
 }
 .prt_homescreen .prt_homescreen_content .prt_home_page .prt_home_page_row_desc .prt_back_to_top button {
-  width: 75px;
-  height: 75px;
-  background-color: #f45d59;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
-  color: #e2dcde;
+  color: #2d2d34;
 }
 .prt_homescreen .prt_homescreen_content .prt_home_page .prt_home_page_row_desc .prt_back_to_top .prt_label {
-  visibility: hidden;
-}
-.prt_homescreen .prt_homescreen_content .prt_home_page .prt_home_page_row_desc .prt_back_to_top:hover .prt_label {
   visibility: visible;
 }
 .prt_homescreen .prt_homescreen_content .prt_about_page {
@@ -248,6 +244,34 @@ body {
   width: 100%;
   margin-bottom: 75px;
   margin-top: 75px;
+}
+.prt_single_project .prt_single_project_header .prt_title {
+  width: 75%;
+}
+.prt_single_project .prt_single_project_header .prt_project_navigation {
+  width: 25%;
+}
+.prt_single_project .prt_single_project_header .prt_project_navigation button {
+  background-color: #e2dcde;
+  border-radius: 20px;
+  border: 1.5px solid #e2dcde;
+  padding: 5px;
+}
+.prt_single_project .prt_single_project_header .prt_project_navigation button:hover {
+  border: 1.5px solid #2d2d34;
+  background-color: #2d2d34;
+}
+.prt_single_project .prt_single_project_header .prt_project_navigation button:hover .prt_icon {
+  color: #e2dcde;
+}
+.prt_single_project .prt_single_project_header .prt_project_navigation .prt_prev {
+  padding-right: 10px;
+}
+.prt_single_project .prt_single_project_header .prt_project_navigation .prt_next {
+  padding-left: 10px;
+}
+.prt_single_project .prt_single_project_header .prt_project_navigation .prt_icon {
+  padding: 5px;
 }
 .prt_single_project .prt_primary_image {
   position: relative;
@@ -713,6 +737,13 @@ body {
   .prt_pf_normal {
     font-size: 14px;
   }
+}
+
+.prt_normal_style_xs {
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
 }
 
 .prt_pf_normal_i {
