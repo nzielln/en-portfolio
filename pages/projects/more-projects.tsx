@@ -5,15 +5,14 @@ import Head from "next/head";
 import Header from "../../src/FRONTEND/COMPONENTS/Header";
 import Footer from "../../src/FRONTEND/COMPONENTS/Footer";
 import { useState } from "react";
-import { ShowLogoAction } from "../../src/PROPS AND INTERFACES/Props";
 import { getAcademicProjects } from "../../prisma/ProjectService";
 import Cursor from "../../src/FRONTEND/COMPONENTS/Cursor";
 
 const MoreProjectsPage = ({ projects }: any) => {
-    const [showMenuItems, setShowMenuItems] = useState<boolean>(false)
+    const [showMenu, setShowMenu] = useState<boolean>(false)
 
-    const _shouldShowMenuItems = (show: boolean) => {
-        setShowMenuItems(show)
+    const _showMenu = (show: boolean) => {
+        setShowMenu(show)
     }
 
     return (
@@ -30,6 +29,7 @@ const MoreProjectsPage = ({ projects }: any) => {
                 <Header showMenuItems={false} isDefault={false} />
                 <Projects
                     projects={projects}
+                    showMenuAction={_showMenu}
                 />
                 <Footer />
             </main>

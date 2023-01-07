@@ -60,17 +60,21 @@ const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
     const [mousex, setMouseX] = useState<number>()
     const [mousey, setMouseY] = useState<number>()
 
+    console.log(showMenu)
     useEffect(() => {
+        setShowMenu(showMenuItems)
+        setMenuIcon(showMenuItems ? faMinus : faPlus)
+        setDegrees(degrees === "0" ? "-90" : "0")
         if (typeof window !== "undefined") {
-            const currentViewWithd = window.innerWidth
+            const currentViewWidth = window.innerWidth
 
             if (showMenuItems) {
                 setShowMobileMenu(
-                    currentViewWithd <= PRT_SMALL_WIDTH ? true : false
+                    currentViewWidth <= PRT_SMALL_WIDTH ? true : false
                 )
             }
         }
-    }, [false])
+    }, [showMenuItems])
 
     const showMenuAndTransition = () => {
         setDegrees(degrees === "0" ? "-90" : "0")

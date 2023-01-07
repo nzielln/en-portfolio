@@ -13,7 +13,8 @@ export type SingleProjectsProp = {
 }
 
 export type AnyProjectsProp = {
-    projects: any[]
+    projects: any[],
+    showMenuAction: (show: boolean) => void
 }
 
 export type ButtonProp = {
@@ -25,6 +26,6 @@ export type HeaderProp = {
     isDefault: boolean
 }
 
-export type ShowLogoAction = {
-    shouldShowMenuItems: (hide: boolean) => void
+export type ShowMenuProp = {
+    showMenuAction: (show: boolean) => void
 }

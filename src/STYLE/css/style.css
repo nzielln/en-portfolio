@@ -445,12 +445,13 @@ body {
 
 .prt_cursor {
   background-color: #f45d59;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   position: absolute;
   pointer-events: none;
   z-index: 100000;
+  mix-blend-mode: lighten;
 }
 
 .prt_normal_style {

@@ -61,11 +61,33 @@ export const PRT_MORE_SPAN = "7"
 export const PRT_IMAGES_FOLDER = "IMAGES"
 export const PRT_DETAIL_SPAN = "5"
 
-export const PRT_SCROLL_THRESHHOLD = 125
+export const PRT_SCROLL_THRESHHOLD = () => {
+    if(typeof window !== "undefined") {
+        return window.innerWidth * 0.05
+    }
+    return 150
+}
+
+export const PRT_DEFAULT_MOUSEX = () => {
+    if (typeof window !== "undefined") {
+        return window.innerWidth * 0.5
+    }
+    return 0
+}
+
+export const PRT_DEFAULT_MOUSEY = () => {
+    if (typeof window !== "undefined") {
+        return window.innerHeight * 0.5
+    }
+    return 0
+}
 
 export const PRT_SMALL_WIDTH = 768
 export const PRT_MEDIUM_WIDTH = 1024
 export const PRT_LARGE_WIDTH = 1280
+
+export const PRT_UNDERLINE_CURSOR_ANIMATION = "prt_underline_cursor_animation"
+export const PRT_SCALE_CURSOR_ANIMATION = "prt_scale_cursor_animation"
 
 // REDUX ACTIONS
 export const PRT_NEXT_PROJECT_ACTION = "NEXT_ACTION"

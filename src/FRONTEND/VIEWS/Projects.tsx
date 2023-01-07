@@ -1,6 +1,10 @@
 import Link from "next/link"
 import Header from "../COMPONENTS/Header"
-import { AnyProjectsProp, ProjectsProp, ShowLogoAction } from "../../PROPS AND INTERFACES/Props"
+import {
+    AnyProjectsProp,
+    ProjectsProp,
+    ShowMenuProp,
+} from "../../PROPS AND INTERFACES/Props"
 import ProjectDescription from "../COMPONENTS/ProjectDescription"
 import { PRT_SCROLL_THRESHHOLD } from "../../CONSTANTS"
 import Cursor from "../COMPONENTS/Cursor"

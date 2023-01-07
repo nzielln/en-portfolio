@@ -17,6 +17,14 @@ const Cursor = () => {
         })
     }
 
+    const addUnderLine = () => {
+    
+    }
+
+    const scaleElement = () => {
+
+    }
+
     return (
         <div
             className="prt_cursor"

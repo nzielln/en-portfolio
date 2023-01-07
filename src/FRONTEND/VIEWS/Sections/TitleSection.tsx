@@ -8,10 +8,10 @@ import {
     PRT_HOME_DESCRIPTION_BOTTOM,
     PRT_SCROLL_THRESHHOLD
 } from "../../../CONSTANTS"
-import { ShowLogoAction } from "../../../PROPS AND INTERFACES/Props"
+import { ShowMenuProp } from "../../../PROPS AND INTERFACES/Props"
 import { useRef } from "react"
 
-const TitleSection = () => {
+const TitleSection = ({showMenuAction}: ShowMenuProp) => {
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -28,16 +28,18 @@ const TitleSection = () => {
 
         window.onscroll = () => {
             if (
-                document.body.scrollTop > PRT_SCROLL_THRESHHOLD ||
-                document.documentElement.scrollTop > PRT_SCROLL_THRESHHOLD
+                document.body.scrollTop > PRT_SCROLL_THRESHHOLD() ||
+                document.documentElement.scrollTop > PRT_SCROLL_THRESHHOLD()
             ) {
                 if (scrollButton) {
                     scrollButton!.style.opacity = "1"
                 }
+                showMenuAction(false)
             } else {
                 if (scrollButton) {
                     scrollButton!.style.opacity = "0"
                 }
+                showMenuAction(true)
             }
         }
     }
