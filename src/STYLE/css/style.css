@@ -448,9 +448,9 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  position: fixed;
+  position: absolute;
   pointer-events: none;
-  z-index: 3000;
+  z-index: 100000;
 }
 
 .prt_normal_style {

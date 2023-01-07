@@ -20,8 +20,7 @@ const ProjectInfoPage = ({ projects, project }: any) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <Cursor />
-                <Header showHeader={false} hideHeader={false} />
+                <Header showMenuItems={false} isDefault={false} />
                 <SingleProject project={project} projects={projects} />
                 <Footer />
             </main>

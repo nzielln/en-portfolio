@@ -1,6 +1,7 @@
 import { PRT_ABOUT_PAGE_SECTION } from "../../../CONSTANTS"
 
 const AboutSection = () => {
+
     return (
         <div
             className="prt_about_page h-screen prt_section md:pt-12 pt-0 md:text-right text-center md:grid md:grid-rows-2 flex flex-col md:justify-between justify-around"

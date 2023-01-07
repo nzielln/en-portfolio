@@ -10,6 +10,7 @@ import { useState, useEffect } from "react"
 import { nextProjectAction, setProjectsAction, prevProjectAction } from "../../STATE AND REDUX/ProjectActions"
 import { _useDispatch, _useSelector } from "../../STATE AND REDUX/Store"
 import { useRouter } from "next/router"
+import Cursor from "../COMPONENTS/Cursor"
 
 const SingleProject = ({ project, projects }: SingleProjectsProp) => {
     const dispatch = _useDispatch()
@@ -56,20 +57,35 @@ const SingleProject = ({ project, projects }: SingleProjectsProp) => {
     return (
         <div className="prt_single_project flex flex-col items-center">
             <div className="prt_single_project_header flex justify-between items-center">
-                <div className="prt_title prt_project_title_style">{project.title}</div>
+                <div className="prt_title prt_project_title_style">
+                    {project.title}
+                </div>
                 <div className="prt_project_navigation flex items-center justify-end gap-2">
                     <button
                         aria-label="Prev"
                         className="prt_prev flex items-center justify-center"
                         onClick={() => getPrevProject()}>
-                        <FontAwesomeIcon icon={faChevronLeft} className="prt_icon" size="sm" />
-                        <h4 className="prt_normal_style prt_uppercase">{PRT_PREV}</h4>
+                        <FontAwesomeIcon
+                            icon={faChevronLeft}
+                            className="prt_icon"
+                            size="sm"
+                        />
+                        <h4 className="prt_normal_style prt_uppercase">
+                            {PRT_PREV}
+                        </h4>
                     </button>
-                    <button aria-label="Next"
+                    <button
+                        aria-label="Next"
                         className="prt_next flex items-center justify-center"
                         onClick={() => getNextProject()}>
-                        <h4 className="prt_normal_style prt_uppercase">{PRT_NEXT}</h4>
-                        <FontAwesomeIcon icon={faChevronRight} className="prt_icon"  size="sm"/>
+                        <h4 className="prt_normal_style prt_uppercase">
+                            {PRT_NEXT}
+                        </h4>
+                        <FontAwesomeIcon
+                            icon={faChevronRight}
+                            className="prt_icon"
+                            size="sm"
+                        />
                     </button>
                 </div>
             </div>
@@ -79,13 +95,14 @@ const SingleProject = ({ project, projects }: SingleProjectsProp) => {
                     alt=""
                     fill
                     className="prt_image"></Image>
-
             </div>
 
             <div className="prt_secondary flex sm:gap-4 md:gap-6 lg:gap-8 md:flex-row flex-col-reverse">
                 <div className="prt_secondary_image ">
                     <Image
-                        src={`/${PRT_IMAGES_FOLDER}/${[project.images.secondary]}`}
+                        src={`/${PRT_IMAGES_FOLDER}/${[
+                            project.images.secondary,
+                        ]}`}
                         alt=""
                         fill
                         className="prt_image"></Image>
@@ -94,10 +111,7 @@ const SingleProject = ({ project, projects }: SingleProjectsProp) => {
                 <div className="prt_details ">
                     <ProjectDetails project={project} />
                 </div>
-
-
             </div>
-
         </div>
     )
 }

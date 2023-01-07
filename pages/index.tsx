@@ -11,26 +11,25 @@ import Cursor from '../src/FRONTEND/COMPONENTS/Cursor'
 
 const Home = ({ projects }: any) => {
 
-  const [hide, setHide] = useState<boolean>(false)
-
-  const _hideHeader = (show: boolean) => {
-    setHide(show)
-  }
-
   return (
-    <>
-      <Head>
-        <title>Ellah Nzikoba</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main >
-        <Cursor/>
-        <Header showHeader={true} hideHeader={hide} />
-        <HomeScreen projects={projects} hideHeader={_hideHeader} />
-        <Footer />
-      </main>
-    </>
+      <>
+          <Head>
+              <title>Ellah Nzikoba</title>
+              <meta
+                  name="viewport"
+                  content="width=device-width, initial-scale=1"
+              />
+              <link rel="icon" href="/favicon.ico" />
+          </Head>
+          <main>
+              <Header showMenuItems={true} isDefault={true} />
+              <HomeScreen
+                  projects={projects}
+              />
+              <Footer />
+              <Cursor />
+          </main>
+      </>
   )
 }
 

@@ -10,10 +10,10 @@ import { getAcademicProjects } from "../../prisma/ProjectService";
 import Cursor from "../../src/FRONTEND/COMPONENTS/Cursor";
 
 const MoreProjectsPage = ({ projects }: any) => {
-    const [hide, setHide] = useState<boolean>(false)
+    const [showMenuItems, setShowMenuItems] = useState<boolean>(false)
 
-    const _hideHeader = (show: boolean) => {
-        setHide(show)
+    const _shouldShowMenuItems = (show: boolean) => {
+        setShowMenuItems(show)
     }
 
     return (
@@ -27,9 +27,10 @@ const MoreProjectsPage = ({ projects }: any) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <Cursor />
-                <Header showHeader={false} hideHeader={false} />
-                <Projects projects={projects} hideHeader={_hideHeader} />
+                <Header showMenuItems={false} isDefault={false} />
+                <Projects
+                    projects={projects}
+                />
                 <Footer />
             </main>
         </>

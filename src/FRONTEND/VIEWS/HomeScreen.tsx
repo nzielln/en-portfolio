@@ -20,12 +20,13 @@ import TitleSection from "./Sections/TitleSection";
 import WorkSection from "./Sections/WorkSection";
 import ContactSection from "./Sections/ContactSection";
 import { AnyProjectsProp, ShowLogoAction } from "../../PROPS AND INTERFACES/Props";
+import Cursor from "../COMPONENTS/Cursor";
 
-const HomeScreen = ({ projects, hideHeader }: AnyProjectsProp) => {
+const HomeScreen = ({ projects }: AnyProjectsProp) => {
     return (
         <div className="prt_homescreen">
             <div className="prt_homescreen_content">
-                <TitleSection hideHeader={hideHeader} />
+                <TitleSection />
                 <div className="prt_section_divider md:block hidden"></div>
                 <AboutSection />
                 <div className="prt_section_divider md:block hidden"></div>
@@ -37,7 +38,6 @@ const HomeScreen = ({ projects, hideHeader }: AnyProjectsProp) => {
             </div>
         </div>
     )
-
 }
 
 

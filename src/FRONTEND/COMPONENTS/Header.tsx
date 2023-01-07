@@ -26,6 +26,7 @@ import { faPlus, faMinus, faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 import { useEffect, useState } from "react"
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
 import styled from "styled-components"
+import Cursor from "./Cursor"
 
 const MENU_ITEMS = [
     {
@@ -50,25 +51,26 @@ const MENU_ITEMS = [
     },
 ]
 
-const Header = ({ showHeader, hideHeader }: HeaderProp) => {
-    const [showMenu, setShowMenu] = useState<boolean>(false)
-    const [menuIcon, setMenuIcon] = useState<IconProp>(faPlus)
+const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
+    const [showMenu, setShowMenu] = useState<boolean>(showMenuItems)
+    const [menuIcon, setMenuIcon] = useState<IconProp>(
+        isDefault ? faMinus : faPlus)
     const [degrees, setDegrees] = useState<string>("0")
     const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false)
     const [mousex, setMouseX] = useState<number>()
     const [mousey, setMouseY] = useState<number>()
 
-     useEffect(() => {
-         if (typeof window !== "undefined") {
-             const currentViewWithd = window.innerWidth
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const currentViewWithd = window.innerWidth
 
-             if (showHeader) {
-                 setShowMobileMenu(
-                     currentViewWithd <= PRT_SMALL_WIDTH ? true : false
-                 )
-             }
-         }
-     }, [false])
+            if (showMenuItems) {
+                setShowMobileMenu(
+                    currentViewWithd <= PRT_SMALL_WIDTH ? true : false
+                )
+            }
+        }
+    }, [false])
 
     const showMenuAndTransition = () => {
         setDegrees(degrees === "0" ? "-90" : "0")
@@ -76,25 +78,12 @@ const Header = ({ showHeader, hideHeader }: HeaderProp) => {
         setMenuIcon(menuIcon === faPlus ? faMinus : faPlus)
     }
 
-    const showMobileMenuHandler = () => {
-
-    }
-
-   
+    const showMobileMenuHandler = () => {}
 
     return (
-        <div
-            className="prt_header flex items-center justify-between fixed "
-            style={{
-                display: `${hideHeader ? "none" : "flex"}`,
-            }}>
-            
-            {showHeader ? (
-                <div
-                    className="prt_header_logo prt_content_style_b"
-                    style={{
-                        visibility: `${hideHeader ? "hidden" : "visible"}`,
-                    }}>
+        <div className="prt_header flex items-center justify-between fixed ">
+            {isDefault ? (
+                <div className="prt_header_logo prt_content_style_b">
                     {PRT_LAST_INITALS}
                 </div>
             ) : (
@@ -127,18 +116,14 @@ const Header = ({ showHeader, hideHeader }: HeaderProp) => {
                     </button>
                 </div>
             ) : (
-                <div
-                    className="prt_header_menu flex items-center"
-                    style={{
-                        display: `${hideHeader ? "none" : "flex"}`,
-                    }}>
+                <div className="prt_header_menu flex items-center">
                     <div
                         className={`prt_menu flex items-center ${
-                            showHeader ? "" : "mr-6"
+                            showMenu ? "mr-4" : ""
                         }`}
                         style={{
                             opacity: `${
-                                showHeader ? "1" : showMenu ? "1" : "0"
+                                showMenu ? "1" : "0"
                             }`,
                         }}>
                         {MENU_ITEMS.map((item) => {
@@ -148,16 +133,13 @@ const Header = ({ showHeader, hideHeader }: HeaderProp) => {
 
                     <button
                         aria-label="Menu"
-                        onClick={() => showMenuAndTransition()}
-                        style={{
-                            display: `${showHeader ? "none" : "block"}`,
-                        }}>
+                        onClick={() => showMenuAndTransition()}>
                         <FontAwesomeIcon
                             icon={menuIcon}
                             className="prt_plus_menu"
-                            size="xl"
                             style={{
                                 transform: `rotate(${degrees}deg)`,
+                                fontSize: "30px"
                             }}
                         />
                     </button>
