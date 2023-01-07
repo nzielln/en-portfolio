@@ -63,12 +63,12 @@ const TitleSection = ({ hideHeader }: ShowLogoAction) => {
             </div>
             <div className="prt_home_page_row_desc">
                 <div className="prt_location_desc_col md:grid md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 md:gap-1 lg:gap-2 xl:gap-3 md:justify-between h-2/4 flex flex-col-reverse justify-end">
-                    <div className="prt_location col-start-1 col-span-1 md:pt-0 pt-4">
+                    <div className="prt_location col-start-1 col-span-1 md:pt-0 pt-4 md:text-left text-right">
                         <h4 className="prt_normal_style prt_uppercase prt_yl_top">{PRT_LOCATION}</h4>
                         <h4 className="prt_normal_style_i prt_uppercase">{PRT_YEAR}</h4>
                     </div>
 
-                    <div className="prt_desc prt_uppercase md:col-start-5 md:col-span-4 lg:col-start-6 lg:col-span-4 xl:col-start-9 xl:col-span-4 flex md:items-end items-start flex-col ">
+                    <div className="prt_desc prt_uppercase md:col-start-5 md:col-span-4 lg:col-start-6 lg:col-span-4 xl:col-start-9 xl:col-span-4 flex md:items-end items-end flex-col ">
                         <h3 className="prt_content_style">{PRT_HOME_DESCRIPTION_TOP}</h3>
                         <h3 className="prt_content_style_i">{PRT_HOME_DESCRIPTION_BOTTOM}</h3>
                     </div>

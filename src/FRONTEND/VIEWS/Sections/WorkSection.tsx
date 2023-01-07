@@ -53,7 +53,7 @@ const WorkSection = ({ projects }: ProjectsProp) => {
 
 
     return (
-        <div className="prt_work_page h-screen prt_section flex flex-col justify-center" id={PRT_WORK_PAGE_SECTION}>
+        <div className="prt_work_page h-screen prt_section flex flex-col justify-center md:items-stretch items-center" id={PRT_WORK_PAGE_SECTION}>
 
             <div className="prt_work_title grid lg:grid-cols-6 md:gap-1 lg:gap-2 xl:gap-3">
                 <h5 className="prt_pf_content_i prt_lowercase col-start-2 col-span-3">A cou<span className="prt_pf_content">pl</span>e of things <span className="prt_pf_content prt_uppercase">I</span>&#39;ve wor<span className="prt_pf_content">k</span>ed on</h5>
@@ -78,7 +78,7 @@ const WorkSection = ({ projects }: ProjectsProp) => {
                             <Link href={`${PRT_PROJECTS_LINK}/${project.title.toLowerCase()}`} passHref>
                                 <ProjectCover project={project} />
                             </Link>
-                            <div className="prt_project_details flex justify-between">
+                            <div className="prt_project_details flex justify-between md:flex-row flex-col md:items-stretch items-center">
                                 <h4 className="prt_project_title_small prt_content_style_b prt_uppercase">{project.title} </h4>
                                 <h4 className="prt_project_type prt_content_style prt_uppercase">{TypeEnumType(project.type)}</h4>
                             </div></>

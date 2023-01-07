@@ -7,6 +7,7 @@ import Footer from "../../src/FRONTEND/COMPONENTS/Footer";
 import { useState } from "react";
 import { ShowLogoAction } from "../../src/PROPS AND INTERFACES/Props";
 import { getAcademicProjects } from "../../prisma/ProjectService";
+import Cursor from "../../src/FRONTEND/COMPONENTS/Cursor";
 
 const MoreProjectsPage = ({ projects }: any) => {
     const [hide, setHide] = useState<boolean>(false)
@@ -19,12 +20,16 @@ const MoreProjectsPage = ({ projects }: any) => {
         <>
             <Head>
                 <title>More Projects</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main >
+            <main>
+                <Cursor />
                 <Header showHeader={false} hideHeader={false} />
-                <Projects projects={projects} hideHeader={ _hideHeader} />
+                <Projects projects={projects} hideHeader={_hideHeader} />
                 <Footer />
             </main>
         </>

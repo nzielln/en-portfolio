@@ -25,19 +25,16 @@ const HomeScreen = ({ projects, hideHeader }: AnyProjectsProp) => {
     return (
         <div className="prt_homescreen">
             <div className="prt_homescreen_content">
-                <TitleSection hideHeader={hideHeader}/>
-                <div className="prt_section_divider"></div>
+                <TitleSection hideHeader={hideHeader} />
+                <div className="prt_section_divider md:block hidden"></div>
                 <AboutSection />
-                <div className="prt_section_divider"></div>
+                <div className="prt_section_divider md:block hidden"></div>
 
                 <WorkSection projects={projects} />
-                <div className="prt_section_divider"></div>
+                <div className="prt_section_divider md:block hidden"></div>
 
                 <ContactSection />
-
             </div>
-
-
         </div>
     )
 

@@ -3,6 +3,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html, button, a, body {
+  cursor: none;
+}
+
 body {
   background-color: #e2dcde;
   height: 100vh;
@@ -437,6 +441,16 @@ body {
 .prt_round_button:hover {
   color: #e2dcde;
   background-color: #2d2d34;
+}
+
+.prt_cursor {
+  background-color: #f45d59;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 3000;
 }
 
 .prt_normal_style {

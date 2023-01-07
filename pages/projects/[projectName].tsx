@@ -5,6 +5,7 @@ import Header from "../../src/FRONTEND/COMPONENTS/Header";
 import SingleProject from "../../src/FRONTEND/VIEWS/SingleProject";
 import Footer from "../../src/FRONTEND/COMPONENTS/Footer";
 import { getProjects } from "../../prisma/ProjectService";
+import Cursor from "../../src/FRONTEND/COMPONENTS/Cursor";
 
 const ProjectInfoPage = ({ projects, project }: any) => {
 
@@ -12,12 +13,16 @@ const ProjectInfoPage = ({ projects, project }: any) => {
         <>
             <Head>
                 <title>More Projects</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
+                <Cursor />
                 <Header showHeader={false} hideHeader={false} />
-                <SingleProject project={project} projects={ projects} />
+                <SingleProject project={project} projects={projects} />
                 <Footer />
             </main>
         </>

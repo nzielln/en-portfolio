@@ -7,6 +7,7 @@ import Header from '../src/FRONTEND/COMPONENTS/Header'
 import Footer from '../src/FRONTEND/COMPONENTS/Footer'
 import { useState } from 'react'
 import { getProjects } from '../prisma/ProjectService'
+import Cursor from '../src/FRONTEND/COMPONENTS/Cursor'
 
 const Home = ({ projects }: any) => {
 
@@ -24,6 +25,7 @@ const Home = ({ projects }: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main >
+        <Cursor/>
         <Header showHeader={true} hideHeader={hide} />
         <HomeScreen projects={projects} hideHeader={_hideHeader} />
         <Footer />

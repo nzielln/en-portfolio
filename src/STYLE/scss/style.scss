@@ -90,7 +90,13 @@ $xl_screen: 1280px;
 @function cover_height() {
 }
 
+
+html, button, a, body {
+    cursor: none;
+}
+
 body {
+    
     background-color: $main;
     height: 100vh;
     padding: {
@@ -637,6 +643,17 @@ body {
     }
 }
 
+
+.prt_cursor {
+    background-color: $red;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 3000;
+
+}
 // FONT STYLES
 .prt_normal_style {
     font: {
