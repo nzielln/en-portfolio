@@ -6,7 +6,9 @@ import {
     PRT_LOCATION, PRT_YEAR,
     PRT_HOME_DESCRIPTION_TOP,
     PRT_HOME_DESCRIPTION_BOTTOM,
-    PRT_SCROLL_THRESHHOLD
+    PRT_SCROLL_THRESHHOLD,
+    PRT_SCROLL_MENU_THRESHHOLD,
+    PRT_OUTLINE_CURSOR_ANIMATION
 } from "../../../CONSTANTS"
 import { ShowMenuProp } from "../../../PROPS AND INTERFACES/Props"
 import { useRef } from "react"
@@ -19,7 +21,7 @@ const TitleSection = ({showMenuAction}: ShowMenuProp) => {
         })
     }
     if (typeof window !== "undefined") {
-        let scrollButton = document.getElementById("prt_scroll_button")
+        let scrollButton = document.querySelector(".prt_scroll_button") as HTMLElement
         // let titleElement = document.getElementById("prt_title")
 
         if (scrollButton) {
@@ -34,11 +36,19 @@ const TitleSection = ({showMenuAction}: ShowMenuProp) => {
                 if (scrollButton) {
                     scrollButton!.style.opacity = "1"
                 }
-                showMenuAction(false)
             } else {
                 if (scrollButton) {
                     scrollButton!.style.opacity = "0"
                 }
+            }
+
+            if (
+                document.body.scrollTop > PRT_SCROLL_MENU_THRESHHOLD() ||
+                document.documentElement.scrollTop >
+                    PRT_SCROLL_MENU_THRESHHOLD()
+            ) {
+                showMenuAction(false)
+            } else {
                 showMenuAction(true)
             }
         }
@@ -48,7 +58,9 @@ const TitleSection = ({showMenuAction}: ShowMenuProp) => {
         <div className="prt_home_page prt_section grid md:grid-rows-4 grid-rows-3 md:gap-1 lg:gap-2 xl:gap-3 h-screen md:flex-row md:content-start md:items-stretch flex-col justify-center ">
             <div className="prt_home_page_row_role grid md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 md:gap-1 lg:gap-2 xl:gap-3 row-span-1 md:items-end items-center">
                 <div className="prt_role_description_col md:col-start-5 md:col-span-4 lg:col-start-7 lg:col-span-4 xl:col-start-9 xl:col-span-4 flex flex-col justify-between">
-                    <div className="prt_role prt_uppercase flex items-start flex-col">
+                    <div
+                        className="prt_role prt_uppercase flex items-start flex-col"
+                        id={`${PRT_OUTLINE_CURSOR_ANIMATION}`}>
                         <h3 className="prt_content_style">
                             {PRT_HOME_ROLE_ENGINEER}
                         </h3>
@@ -89,8 +101,8 @@ const TitleSection = ({showMenuAction}: ShowMenuProp) => {
                     </div>
                 </div>
                 <div
-                    className="prt_back_to_top fixed bottom-2 right-4 flex justify-centerm items-center"
-                    id="prt_scroll_button">
+                    className="prt_back_to_top fixed bottom-2 right-4 flex justify-centerm items-center prt_scroll_button"
+                    id={`${PRT_OUTLINE_CURSOR_ANIMATION}`}>
                     <button
                         onClick={() => scrollToTop()}
                         aria-label="Back To Top"
@@ -98,7 +110,7 @@ const TitleSection = ({showMenuAction}: ShowMenuProp) => {
                         <FontAwesomeIcon
                             icon={faArrowUp}
                             className="prt_icon"
-                            size="xs"
+                            size="sm"
                         />
                         <h5 className="prt_label prt_normal_style_xs prt_uppercase">
                             Top

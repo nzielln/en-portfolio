@@ -60,7 +60,6 @@ const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
     const [mousex, setMouseX] = useState<number>()
     const [mousey, setMouseY] = useState<number>()
 
-    console.log(showMenu)
     useEffect(() => {
         setShowMenu(showMenuItems)
         setMenuIcon(showMenuItems ? faMinus : faPlus)

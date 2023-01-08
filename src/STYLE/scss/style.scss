@@ -7,14 +7,14 @@
 
 $space: "Space Mono", monospace;
 $playfair: "Playfair Display", serif;
-$main: #e2dcde;
+$main: #e9e6e7;
 $dark: #2d2d34;
 $red: #f45d59;
 $round-radius_xl: 20px;
 $round-radius_lg: 20px;
 $round-radius_md: 20px;
 $round-radius_sm: 20px;
-$normal_xsm: 10px;
+$normal_xsm: 12px;
 $normal_sm: 14px;
 $normal_lg: 16px;
 $title_sm: 92px;
@@ -90,13 +90,7 @@ $xl_screen: 1280px;
 @function cover_height() {
 }
 
-
-html, button, a, body {
-    cursor: none;
-}
-
 body {
-    
     background-color: $main;
     height: 100vh;
     padding: {
@@ -173,10 +167,16 @@ body {
                         color: $dark;
                     }
 
+                    button,
+                    .prt_icon,
+                    h5 {
+                        pointer-events: none;
+                    }
+
                     .prt_label {
                         visibility: visible;
                     }
-
+                    transition: all 500ms ease-in;
                 }
             }
         }
@@ -434,8 +434,6 @@ body {
                 &:hover .prt_icon {
                     color: $main;
                 }
-
-
             }
 
             .prt_prev {
@@ -445,7 +443,6 @@ body {
             .prt_next {
                 padding-left: 10px;
             }
-
 
             .prt_icon {
                 padding: 5px;
@@ -593,7 +590,6 @@ body {
             bottom: 4px;
             left: 12px;
             right: 12px;
-
         }
         border-radius: $round-radius_lg;
         background-color: $main;
@@ -643,16 +639,15 @@ body {
     }
 }
 
-
 .prt_cursor {
     background-color: $red;
-    width: 25px; 
-    height: 25px;
+    width: 35px; 
+    height:35px;
     border-radius: 50%;
+    opacity: 0.35;
     position: absolute;
     pointer-events: none;
-    z-index: 100000;
-    mix-blend-mode: lighten;
+    z-index: 100000;  
 
 
 }

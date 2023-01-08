@@ -68,6 +68,13 @@ export const PRT_SCROLL_THRESHHOLD = () => {
     return 150
 }
 
+export const PRT_SCROLL_MENU_THRESHHOLD = () => {
+    if(typeof window !== "undefined") {
+        return window.innerWidth * 0.025
+    }
+    return 150
+}
+
 export const PRT_DEFAULT_MOUSEX = () => {
     if (typeof window !== "undefined") {
         return window.innerWidth * 0.5
@@ -86,7 +93,7 @@ export const PRT_SMALL_WIDTH = 768
 export const PRT_MEDIUM_WIDTH = 1024
 export const PRT_LARGE_WIDTH = 1280
 
-export const PRT_UNDERLINE_CURSOR_ANIMATION = "prt_underline_cursor_animation"
+export const PRT_OUTLINE_CURSOR_ANIMATION = "prt_outline_cursor_animation"
 export const PRT_SCALE_CURSOR_ANIMATION = "prt_scale_cursor_animation"
 
 // REDUX ACTIONS

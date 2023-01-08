@@ -30,7 +30,7 @@ const Home = ({ projects }: any) => {
                 <Header showMenuItems={showMenu} isDefault={true} />
                 <HomeScreen projects={projects} showMenuAction={_showMenu} />
                 <Footer />
-                <Cursor />
+                {/* <Cursor /> */}
             </main>
         </>
     )
@@ -44,5 +44,12 @@ export const getStaticProps: GetStaticProps = async () => {
         props: {
             projects: projects,
         },
+    }
+}
+
+export const getServerProps = () => {
+
+    return {
+        props: {}
     }
 }

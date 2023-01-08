@@ -3,12 +3,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-html, button, a, body {
-  cursor: none;
-}
-
 body {
-  background-color: #e2dcde;
+  background-color: #e9e6e7;
   height: 100vh;
   padding-left: 128px;
   padding-right: 128px;
@@ -60,11 +56,19 @@ body {
     line-height: 80px;
   }
 }
+.prt_homescreen .prt_homescreen_content .prt_home_page .prt_home_page_row_desc .prt_back_to_top {
+  transition: all 500ms ease-in;
+}
 .prt_homescreen .prt_homescreen_content .prt_home_page .prt_home_page_row_desc .prt_back_to_top button {
   width: 35px;
   height: 35px;
   border-radius: 50%;
   color: #2d2d34;
+}
+.prt_homescreen .prt_homescreen_content .prt_home_page .prt_home_page_row_desc .prt_back_to_top button,
+.prt_homescreen .prt_homescreen_content .prt_home_page .prt_home_page_row_desc .prt_back_to_top .prt_icon,
+.prt_homescreen .prt_homescreen_content .prt_home_page .prt_home_page_row_desc .prt_back_to_top h5 {
+  pointer-events: none;
 }
 .prt_homescreen .prt_homescreen_content .prt_home_page .prt_home_page_row_desc .prt_back_to_top .prt_label {
   visibility: visible;
@@ -105,7 +109,7 @@ body {
 @media screen and (max-width: 768px) {
   .prt_homescreen .prt_homescreen_content .prt_work_page .prt_project_section .prt_see_more {
     padding-bottom: 6px;
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 .prt_homescreen .prt_homescreen_content .prt_work_page .prt_project_section .prt_project_detail_section .prt_project_cover {
@@ -184,7 +188,7 @@ body {
   border: 1.5px solid #2d2d34;
   border-radius: 20px;
   background-color: #2d2d34;
-  color: #e2dcde;
+  color: #e9e6e7;
 }
 .prt_homescreen .prt_homescreen_content .prt_contact_page .prt_contact_info .prt_contact_links {
   height: 100%;
@@ -256,9 +260,9 @@ body {
   width: 25%;
 }
 .prt_single_project .prt_single_project_header .prt_project_navigation button {
-  background-color: #e2dcde;
+  background-color: #e9e6e7;
   border-radius: 20px;
-  border: 1.5px solid #e2dcde;
+  border: 1.5px solid #e9e6e7;
   padding: 5px;
 }
 .prt_single_project .prt_single_project_header .prt_project_navigation button:hover {
@@ -266,7 +270,7 @@ body {
   background-color: #2d2d34;
 }
 .prt_single_project .prt_single_project_header .prt_project_navigation button:hover .prt_icon {
-  color: #e2dcde;
+  color: #e9e6e7;
 }
 .prt_single_project .prt_single_project_header .prt_project_navigation .prt_prev {
   padding-right: 10px;
@@ -404,12 +408,12 @@ body {
   padding-left: 12px;
   padding-right: 12px;
   border-radius: 20px;
-  background-color: #e2dcde;
+  background-color: #e9e6e7;
 }
 
 .prt_round_button {
   margin-left: 24px;
-  background-color: #e2dcde;
+  background-color: #e9e6e7;
   width: -moz-fit-content;
   width: fit-content;
   height: 30px;
@@ -439,19 +443,19 @@ body {
   }
 }
 .prt_round_button:hover {
-  color: #e2dcde;
+  color: #e9e6e7;
   background-color: #2d2d34;
 }
 
 .prt_cursor {
   background-color: #f45d59;
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
+  opacity: 0.35;
   position: absolute;
   pointer-events: none;
   z-index: 100000;
-  mix-blend-mode: lighten;
 }
 
 .prt_normal_style {
@@ -756,7 +760,7 @@ body {
 
 .prt_normal_style_xs {
   font-family: "Space Mono", monospace;
-  font-size: 10px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 700;
 }

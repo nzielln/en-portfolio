@@ -10,7 +10,7 @@ config.autoAddCss = false
 export default function App({ Component, pageProps }: AppProps) {
   return (
       <Provider store={store}>
-              <Cursor />
+              {/* <Cursor /> */}
               <Component {...pageProps} />
       </Provider>
   )
