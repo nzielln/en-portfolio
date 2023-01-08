@@ -24,7 +24,7 @@ const ContactSection = () => {
     const company = useRef<HTMLInputElement>(null)
     const message = useRef<HTMLTextAreaElement>(null)
 
-    const [state, handleSubmit] = useForm("xoqzqkbr")
+    const [state, handleSubmit] = useForm(process.env.FORMSPREE_ENDPOINT!)
 
     const _handleSubmit = async () => {
         const formData = {

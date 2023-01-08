@@ -63,7 +63,7 @@ const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
     useEffect(() => {
         setShowMenu(showMenuItems)
         setMenuIcon(showMenuItems ? faMinus : faPlus)
-        setDegrees(degrees === "0" ? "-90" : "0")
+        setDegrees(degrees === "0" ? "90" : "0")
         if (typeof window !== "undefined") {
             const currentViewWidth = window.innerWidth
 
