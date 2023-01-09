@@ -94,6 +94,7 @@ const SingleProject = ({ project, projects }: SingleProjectsProp) => {
                     src={`/${PRT_IMAGES_FOLDER}/${[project.images.primary]}`}
                     alt=""
                     fill
+                    priority={true}
                     className="prt_image"></Image>
             </div>
 
@@ -105,6 +106,7 @@ const SingleProject = ({ project, projects }: SingleProjectsProp) => {
                         ]}`}
                         alt=""
                         fill
+                        priority={true}
                         className="prt_image"></Image>
                 </div>
 

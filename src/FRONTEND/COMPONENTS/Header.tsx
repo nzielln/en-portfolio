@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 import RoundButton from "./RoundButton"
 import {
     PRT_HOME_PAGE,
@@ -122,7 +121,7 @@ const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
                 <div className="prt_header_menu flex items-center">
                     <div
                         className={`prt_menu flex items-center ${
-                            showMenu ? "mr-4" : ""
+                            showMenu ? "mr-3" : ""
                         }`}
                         style={{
                             opacity: `${
@@ -134,9 +133,11 @@ const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
                         })}
                     </div>
 
-                    <button
+                        <button
+                            className="prt_plus_sign"
                         aria-label="Menu"
-                        onClick={() => showMenuAndTransition()}>
+                            onClick={() => showMenuAndTransition()}>
+                            
                         <FontAwesomeIcon
                             icon={menuIcon}
                             className="prt_plus_menu"

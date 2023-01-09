@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { PRT_HOME_PAGE, PRT_RESUME_PAGE } from "../../CONSTANTS";
 import { ButtonProp } from "../../PROPS AND INTERFACES/Props";
 

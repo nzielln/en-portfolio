@@ -3,32 +3,35 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     PRT_HOME_ROLE_ENGINEER,
     PRT_HOME_ROLE_DESIGNER,
-    PRT_LOCATION, PRT_YEAR,
+    PRT_LOCATION,
+    PRT_YEAR,
     PRT_HOME_DESCRIPTION_TOP,
     PRT_HOME_DESCRIPTION_BOTTOM,
     PRT_SCROLL_THRESHHOLD,
     PRT_SCROLL_MENU_THRESHHOLD,
-    PRT_OUTLINE_CURSOR_ANIMATION
+    PRT_OUTLINE_CURSOR_ANIMATION,
 } from "../../../CONSTANTS"
 import { ShowMenuProp } from "../../../PROPS AND INTERFACES/Props"
 import { useRef } from "react"
 
-const TitleSection = ({showMenuAction}: ShowMenuProp) => {
+const TitleSection = ({ showMenuAction }: ShowMenuProp) => {
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
             behavior: "smooth",
         })
     }
+
     if (typeof window !== "undefined") {
-        let scrollButton = document.querySelector(".prt_scroll_button") as HTMLElement
-        // let titleElement = document.getElementById("prt_title")
+        let scrollButton = document.querySelector(
+            ".prt_scroll_button"
+        ) as HTMLElement
 
         if (scrollButton) {
             scrollButton!.style.opacity = "0"
         }
 
-        window.onscroll = () => {
+        const showTopButton = () => {
             if (
                 document.body.scrollTop > PRT_SCROLL_THRESHHOLD() ||
                 document.documentElement.scrollTop > PRT_SCROLL_THRESHHOLD()
@@ -41,6 +44,12 @@ const TitleSection = ({showMenuAction}: ShowMenuProp) => {
                     scrollButton!.style.opacity = "0"
                 }
             }
+        }
+
+        showTopButton()
+
+        window.onscroll = () => {
+            showTopButton()
 
             if (
                 document.body.scrollTop > PRT_SCROLL_MENU_THRESHHOLD() ||

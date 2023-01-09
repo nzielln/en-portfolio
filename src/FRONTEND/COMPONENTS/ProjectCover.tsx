@@ -15,9 +15,9 @@ const ProjectCover = ({ project }: ProjectProp) => {
                 src={`/${PRT_IMAGES_FOLDER}/${[project.images.cover]}`}
                 alt=""
                 fill
+                priority={true}
                 className="prt_project_cover_image"></Image>
         </div>
-
     )
 }
 

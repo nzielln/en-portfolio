@@ -10,10 +10,10 @@ $playfair: "Playfair Display", serif;
 $main: #e9e6e7;
 $dark: #2d2d34;
 $red: #f45d59;
-$round-radius_xl: 20px;
-$round-radius_lg: 20px;
-$round-radius_md: 20px;
-$round-radius_sm: 20px;
+$round-radius_xl: 15px;
+$round-radius_lg: 15px;
+$round-radius_md: 15px;
+$round-radius_sm: 15px;
 $normal_xsm: 12px;
 $normal_sm: 14px;
 $normal_lg: 16px;
@@ -36,17 +36,17 @@ $footer: 12px;
 $cover_height_sm: 46vw;
 $cover_height_md: 46vw;
 $cover_height_lg: 42vw;
-$cover_height_xl: 42.5vw;
+$cover_height_xl: 41vw;
 
-$primary_height_sm: 54.5vw;
-$primary_height_md: 56vw;
-$primary_height_lg: 50.55vw;
-$primary_height_xl: 41.5vw;
+$primary_height_sm: 33vw;
+$primary_height_md: 35vw;
+$primary_height_lg: 35.5vw;
+$primary_height_xl: 38vw;
 
 $secondary_height_sm: 54.5vw;
 $secondary_height_md: 42vw;
 $secondary_height_lg: 36vw;
-$secondary_height_xl: 36vw;
+$secondary_height_xl: 30vw;
 
 $secondary_width_sm: 54.5vw;
 $secondary_width_md: 56vw;
@@ -167,12 +167,6 @@ body {
                         color: $dark;
                     }
 
-                    button,
-                    .prt_icon,
-                    h5 {
-                        pointer-events: none;
-                    }
-
                     .prt_label {
                         visibility: visible;
                     }
@@ -233,6 +227,7 @@ body {
 
                         .prt_project_cover_image {
                             object-fit: cover;
+                            object-position: center top;
                             height: 100%;
                             width: 100%;
                             border-radius: $round-radius_xl;
@@ -408,6 +403,10 @@ body {
 // SINGLE PROJECT
 
 .prt_single_project {
+    padding: {
+        left: 125px;
+        right: 125px;
+    }
     .prt_single_project_header {
         width: 100%;
         margin-bottom: 75px;
@@ -453,10 +452,12 @@ body {
     .prt_primary_image {
         position: relative;
         width: 100%;
-        height: $primary_height_lg;
+        height: $primary_height_xl;
+        text-align: start;
 
         .prt_image {
             object-fit: cover;
+            object-position: center top;
             height: 100%;
             width: 100%;
             border-radius: $round-radius_lg;
@@ -498,7 +499,7 @@ body {
         .prt_secondary_image {
             position: relative;
             width: 60%;
-            height: $secondary_height_lg;
+            height: $secondary_height_xl;
             .prt_image {
                 object-fit: cover;
                 border-radius: $round-radius_lg;
@@ -554,6 +555,7 @@ body {
     // background-color: $main;
     // top: 0;
     // padding-top: 54px;
+    // padding-bottom: 10px;
 
     left: 0;
     right: 0;
@@ -592,7 +594,7 @@ body {
             right: 12px;
         }
         border-radius: $round-radius_lg;
-        background-color: $main;
+        //background-color: $main;
     }
 }
 
@@ -641,15 +643,13 @@ body {
 
 .prt_cursor {
     background-color: $red;
-    width: 35px; 
-    height:35px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     opacity: 0.35;
     position: absolute;
     pointer-events: none;
-    z-index: 100000;  
-
-
+    z-index: 100000;
 }
 // FONT STYLES
 .prt_normal_style {
