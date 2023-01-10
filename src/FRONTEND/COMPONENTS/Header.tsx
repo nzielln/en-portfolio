@@ -149,7 +149,7 @@ const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
                         style={style}
                         onClick={() => {
                             route.push(
-                                MENU_ITEMS[index].link === PRT_RESUME_PAGE
+                                MENU_ITEMS[index].title === PRT_RESUME_PAGE
                                     ? MENU_ITEMS[index].link
                                     : `#${MENU_ITEMS[index].link}`
                             )
