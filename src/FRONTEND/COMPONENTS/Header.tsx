@@ -65,26 +65,18 @@ const MENU_ITEMS = [
 const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
     const [showMenu, setShowMenu] = useState<boolean>(showMenuItems)
     const [degrees, setDegrees] = useState<number>(0)
-    const [showMobileMenu, setShowMobileMenu] = useState<boolean | undefined >()
+    const [showMobileMenu, setShowMobileMenu] = useState<boolean | undefined>()
     const [mousex, setMouseX] = useState<number>()
     const [mousey, setMouseY] = useState<number>()
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [windowWidth, setWindowWidth] = useState(0)
     const [color, setColor] = useState(PRT_MAIN_COLOR)
     const route = useRouter()
-    const [menuIcon, setMenuIcon] = useState<IconProp>(
-        isDefault ? faMinus : faPlus
-    )
+    const [menuIcon, setMenuIcon] = useState<IconProp>(isDefault ? faMinus : faPlus)
 
     useEffect(() => {
-        if (showMobileMenu) {
-            setMenuIcon(faPlus)
-            return
-        }
-
         setShowMenu(showMenuItems)
         setMenuIcon(showMenuItems ? faMinus : faPlus)
-        setDegrees(degrees === 0 ? 0 : -90)
         if (typeof window !== "undefined") {
             const currentViewWidth = window.innerWidth
             setWindowWidth(currentViewWidth)
@@ -95,11 +87,14 @@ const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
                 )
             }
 
-            setMenuIcon(currentViewWidth <= PRT_SMALL_WIDTH ? faPlus : faMinus)
-            setDegrees(currentViewWidth <= PRT_SMALL_WIDTH ? -90 : 0)
-            
+            if (currentViewWidth <= PRT_SMALL_WIDTH) {
+                setMenuIcon(
+                    currentViewWidth <= PRT_SMALL_WIDTH ? faPlus : menuIcon
+                )
+                setDegrees(currentViewWidth <= PRT_SMALL_WIDTH ? -90 : degrees)
+            }
+
         }
-        
     }, [showMenuItems])
 
     const showMenuAndTransition = () => {
