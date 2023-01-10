@@ -15,6 +15,8 @@ import {
     PRT_BACK_HOME,
     PRT_NAME,
     PRT_SMALL_WIDTH,
+    PRT_MAIN_COLOR,
+    PRT_DARK_COLOR,
 } from "../../CONSTANTS"
 import { HeaderProp } from "../../PROPS AND INTERFACES/Props"
 import {
@@ -26,6 +28,16 @@ import { useEffect, useState } from "react"
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
 import styled from "styled-components"
 import Cursor from "./Cursor"
+import {
+    animated,
+    useSpring,
+    config,
+    useTrail,
+    useTransition,
+    a,
+} from "@react-spring/web"
+import styles from "./styles.module.css"
+import { useRouter } from "next/router"
 
 const MENU_ITEMS = [
     {
@@ -52,104 +64,185 @@ const MENU_ITEMS = [
 
 const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
     const [showMenu, setShowMenu] = useState<boolean>(showMenuItems)
-    const [menuIcon, setMenuIcon] = useState<IconProp>(
-        isDefault ? faMinus : faPlus)
-    const [degrees, setDegrees] = useState<string>("0")
-    const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false)
+    const [degrees, setDegrees] = useState<number>(0)
+    const [showMobileMenu, setShowMobileMenu] = useState<boolean | undefined >()
     const [mousex, setMouseX] = useState<number>()
     const [mousey, setMouseY] = useState<number>()
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [windowWidth, setWindowWidth] = useState(0)
+    const [color, setColor] = useState(PRT_MAIN_COLOR)
+    const route = useRouter()
+    const [menuIcon, setMenuIcon] = useState<IconProp>(
+        isDefault ? faMinus : faPlus
+    )
 
     useEffect(() => {
+        if (showMobileMenu) {
+            setMenuIcon(faPlus)
+            return
+        }
+
         setShowMenu(showMenuItems)
         setMenuIcon(showMenuItems ? faMinus : faPlus)
-        setDegrees(degrees === "0" ? "90" : "0")
+        setDegrees(degrees === 0 ? 0 : -90)
         if (typeof window !== "undefined") {
             const currentViewWidth = window.innerWidth
+            setWindowWidth(currentViewWidth)
 
             if (showMenuItems) {
                 setShowMobileMenu(
                     currentViewWidth <= PRT_SMALL_WIDTH ? true : false
                 )
             }
+
+            setMenuIcon(currentViewWidth <= PRT_SMALL_WIDTH ? faPlus : faMinus)
+            setDegrees(currentViewWidth <= PRT_SMALL_WIDTH ? -90 : 0)
+            
         }
+        
     }, [showMenuItems])
 
     const showMenuAndTransition = () => {
-        setDegrees(degrees === "0" ? "-90" : "0")
+        setDegrees(degrees === 0 ? -90 : 0)
         setShowMenu(!showMenu)
         setMenuIcon(menuIcon === faPlus ? faMinus : faPlus)
     }
 
-    const showMobileMenuHandler = () => {}
+    const labelTrail = useTrail(MENU_ITEMS.length, {
+        config: { mass: 15, tension: 1000, friction: 100 },
+        opacity: mobileMenuOpen ? 1 : 0,
+        x: mobileMenuOpen ? 0 : -100,
+        width: mobileMenuOpen ? windowWidth : 0,
+        from: { opacity: 0, x: -100, width: 0 },
+        delay: 300,
+    })
+
+    const spring = useSpring({
+        config: {
+            mass: 5,
+            friction: 20,
+            tension: 50,
+        },
+        from: {
+            opacity: 0,
+
+            width: 0,
+        },
+        to: {
+            opacity: mobileMenuOpen ? 1 : 0,
+
+            width: mobileMenuOpen ? windowWidth : 0,
+        },
+    })
+
+    const showMobileMenuHandler = () => {
+        setDegrees(degrees === 0 ? -90 : 0)
+        setMobileMenuOpen(!mobileMenuOpen)
+        setMenuIcon(!mobileMenuOpen ? faMinus : faPlus)
+        setColor(color === PRT_DARK_COLOR ? PRT_MAIN_COLOR : PRT_DARK_COLOR)
+    }
 
     return (
-        <div className="prt_header flex items-center justify-between fixed ">
-            {isDefault ? (
-                <div className="prt_header_logo prt_content_style_b">
-                    {PRT_LAST_INITALS}
-                </div>
-            ) : (
-                <div className="prt_header_logo prt_content_style_b">
-                    <Link
-                        href={"/"}
-                        passHref
-                        className="flex items-center gap-2">
-                        <FontAwesomeIcon icon={faArrowLeft} size="1x" />
-                        <h4 className="prt_normal_style_b prt_uppercase">
-                            {PRT_BACK_HOME}
-                        </h4>
-                    </Link>
-                </div>
-            )}
-
-            {showMobileMenu ? (
-                <div className="prt_header_menu flex items-center">
-                    <button
-                        aria-label="Menu"
-                        onClick={() => showMobileMenuHandler()}>
-                        <FontAwesomeIcon
-                            icon={menuIcon}
-                            className="prt_plus_menu"
-                            size="xl"
-                            style={{
-                                transform: `rotate(${degrees}deg)`,
-                            }}
-                        />
-                    </button>
-                </div>
-            ) : (
-                <div className="prt_header_menu flex items-center">
-                    <div
-                        className={`prt_menu flex items-center ${
-                            showMenu ? "mr-3" : ""
-                        }`}
-                        style={{
-                            opacity: `${
-                                showMenu ? "1" : "0"
-                            }`,
+        <>
+            <animated.div
+                className="prt_mobile_menu h-screen"
+                style={{ ...spring }}>
+                {labelTrail.map(({ width, ...style }, index) => (
+                    <a.div
+                        key={index}
+                        className="prt_mobile_menu_link prt_overlay_menu prt_uppercase"
+                        style={style}
+                        onClick={() => {
+                            route.push(`#${MENU_ITEMS[index].link}`)
+                            setDegrees(degrees === 0 ? -90 : 0)
+                            setMobileMenuOpen(!mobileMenuOpen)
+                            setMenuIcon(!mobileMenuOpen ? faMinus : faPlus)
+                            setColor(
+                                color === PRT_DARK_COLOR
+                                    ? PRT_MAIN_COLOR
+                                    : PRT_DARK_COLOR
+                            )
                         }}>
-                        {MENU_ITEMS.map((item) => {
-                            return <RoundButton link={item} key={item.title} />
-                        })}
+                        <a.div style={{ width }}>
+                            {MENU_ITEMS[index].title}
+                        </a.div>
+                    </a.div>
+                ))}
+            </animated.div>
+            <div className="prt_header flex items-center justify-between fixed ">
+                {isDefault ? (
+                    <div className="prt_header_logo prt_content_style_b">
+                        {PRT_LAST_INITALS}
                     </div>
+                ) : (
+                    <div className="prt_header_logo prt_content_style_b">
+                        <Link
+                            href={"/"}
+                            passHref
+                            className="flex items-center gap-2">
+                            <FontAwesomeIcon icon={faArrowLeft} size="1x" />
+                            <h4 className="prt_normal_style_b prt_uppercase">
+                                {PRT_BACK_HOME}
+                            </h4>
+                        </Link>
+                    </div>
+                )}
+
+                {showMobileMenu ? (
+                    <div
+                        className={`prt_header_menu sm:flex items-center ${
+                            isDefault ? "flex" : "hidden"
+                        }`}>
+                        <button
+                            className="prt_plus_sign"
+                            aria-label="Menu"
+                            onClick={() => showMobileMenuHandler()}>
+                            <FontAwesomeIcon
+                                icon={menuIcon}
+                                className="prt_plus_menu"
+                                size="xl"
+                                style={{
+                                    transform: `rotate(${degrees}deg)`,
+                                }}
+                            />
+                        </button>
+                    </div>
+                ) : (
+                    <div
+                        className={`prt_header_menu sm:flex items-center ${
+                            isDefault ? "flex" : "hidden"
+                        }`}>
+                        <div
+                            className={`prt_menu flex items-center ${
+                                showMenu ? "mr-3" : ""
+                            }`}
+                            style={{
+                                opacity: `${showMenu ? "1" : "0"}`,
+                            }}>
+                            {MENU_ITEMS.map((item) => {
+                                return (
+                                    <RoundButton link={item} key={item.title} />
+                                )
+                            })}
+                        </div>
 
                         <button
                             className="prt_plus_sign"
-                        aria-label="Menu"
+                            aria-label="Menu"
                             onClick={() => showMenuAndTransition()}>
-                            
-                        <FontAwesomeIcon
-                            icon={menuIcon}
-                            className="prt_plus_menu"
-                            style={{
-                                transform: `rotate(${degrees}deg)`,
-                                fontSize: "30px"
-                            }}
-                        />
-                    </button>
-                </div>
-            )}
-        </div>
+                            <FontAwesomeIcon
+                                icon={menuIcon}
+                                className="prt_plus_menu"
+                                style={{
+                                    transform: `rotate(${degrees}deg)`,
+                                    fontSize: "30px",
+                                }}
+                            />
+                        </button>
+                    </div>
+                )}
+            </div>
+        </>
     )
 }
 

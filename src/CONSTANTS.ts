@@ -89,9 +89,15 @@ export const PRT_DEFAULT_MOUSEY = () => {
     return 0
 }
 
-export const PRT_SMALL_WIDTH = 768
+export const PRT_SMALL_WIDTH = 450
 export const PRT_MEDIUM_WIDTH = 1024
 export const PRT_LARGE_WIDTH = 1280
+
+export const PRT_TYPE = "Type"
+export const PRT_DESCRIPTION = "Description"
+
+export const PRT_MAIN_COLOR = "#e9e6e7"
+export const PRT_DARK_COLOR = "#2d2d34"
 
 export const PRT_OUTLINE_CURSOR_ANIMATION = "prt_outline_cursor_animation"
 export const PRT_SCALE_CURSOR_ANIMATION = "prt_scale_cursor_animation"

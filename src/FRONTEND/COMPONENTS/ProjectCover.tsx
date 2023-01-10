@@ -16,7 +16,7 @@ const ProjectCover = ({ project }: ProjectProp) => {
                 alt=""
                 fill
                 priority={true}
-                className="prt_project_cover_image"></Image>
+                className="prt_project_view_image"></Image>
         </div>
     )
 }

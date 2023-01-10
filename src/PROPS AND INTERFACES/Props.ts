@@ -2,6 +2,7 @@ import { LinkInterface, ProjectInterface } from "./Interfaces"
 
 export type ProjectProp = {
     project: ProjectInterface,
+    
 }
 export type ProjectsProp = {
     projects: ProjectInterface[],
@@ -28,4 +29,9 @@ export type HeaderProp = {
 
 export type ShowMenuProp = {
     showMenuAction: (show: boolean) => void
+}
+
+export type MenuProp = {
+    openMenu: () => void
+    spring: any
 }

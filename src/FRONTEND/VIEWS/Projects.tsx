@@ -13,8 +13,8 @@ const Projects = ({ projects }: AnyProjectsProp) => {
     
 
     return (
-        <div className="prt_more_projects grid grid-rows-6 flex-col pb-24">
-            <div className="md:grid md:grid-cols-12 md:gap-1 row-span-1">
+        <div className="prt_more_projects flex flex-col pb-24">
+            <div className="pt-16 pb-16">
                 <h4 className="prt_more_projects_title prt_pf_content_i md:col-start-3 md:col-span-4 ">
                     o<span className="prt_pf_content">th</span>er{" "}
                     <span className="prt_pf_content">pr</span>o
@@ -23,7 +23,7 @@ const Projects = ({ projects }: AnyProjectsProp) => {
                     &#39;ve wo<span className="prt_pf_content">rk</span>ed on
                 </h4>
             </div>
-            <div className="prt_more_projects_content row-span-5">
+            <div className="prt_more_projects_content ">
                 {projects.map((project) => {
                     return (
                         <ProjectDescription

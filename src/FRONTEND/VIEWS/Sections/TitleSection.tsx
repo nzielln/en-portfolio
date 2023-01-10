@@ -79,6 +79,7 @@ const TitleSection = ({ showMenuAction }: ShowMenuProp) => {
                     </div>
                 </div>
             </div>
+            
             <div
                 className="prt_home_page_row_title grid md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 md:gap-1 lg:gap-2 xl:gap-3 md:row-span-2 md:items-center items-start"
                 id="prt_title">

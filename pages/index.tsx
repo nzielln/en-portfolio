@@ -7,6 +7,8 @@ import Footer from "../src/FRONTEND/COMPONENTS/Footer"
 import { useState } from "react"
 import { getProjects } from "../prisma/ProjectService"
 import Cursor from "../src/FRONTEND/COMPONENTS/Cursor"
+import Menu from "../src/FRONTEND/COMPONENTS/Menu"
+import { useSpring } from "@react-spring/web"
 
 const Home = ({ projects }: any) => {
     const [showMenu, setShowMenu] = useState(true)
@@ -15,6 +17,7 @@ const Home = ({ projects }: any) => {
         setShowMenu(show)
     }
 
+
     return (
         <>
             <Head>
@@ -22,6 +25,11 @@ const Home = ({ projects }: any) => {
                 <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1"
+                />
+                <meta
+                    name="description"
+                    content="Personal Website and for Ellah Nzikoba, MSCS @ Northeastern University"
+                    key="desc"
                 />
                 <link
                     rel="apple-touch-icon"
@@ -48,11 +56,10 @@ const Home = ({ projects }: any) => {
                     color="#da532c"
                 />
             </Head>
-            <main>
+            <main className="prt_main_index">
                 <Header showMenuItems={showMenu} isDefault={true} />
                 <HomeScreen projects={projects} showMenuAction={_showMenu} />
                 <Footer />
-                {/* <Cursor /> */}
             </main>
         </>
     )

@@ -1,7 +1,7 @@
 import { PRT_GITHUB_LINK_TEXT } from "../../CONSTANTS"
 import { ProjectProp } from "../../PROPS AND INTERFACES/Props"
 
-const ProjectDetails = ({project}: ProjectProp) => {
+const ProjectDetails = ({ project }: ProjectProp, { row }: any) => {
 
     return (
         <>
