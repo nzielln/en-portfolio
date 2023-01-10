@@ -70,7 +70,9 @@ const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
     const [windowWidth, setWindowWidth] = useState(0)
     const [color, setColor] = useState(PRT_MAIN_COLOR)
     const route = useRouter()
-    const [menuIcon, setMenuIcon] = useState<IconProp>(isDefault ? faMinus : faPlus)
+    const [menuIcon, setMenuIcon] = useState<IconProp>(
+        isDefault ? faMinus : faPlus
+    )
 
     useEffect(() => {
         setShowMenu(showMenuItems)
@@ -88,19 +90,17 @@ const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
 
             if (currentViewWidth <= PRT_SMALL_WIDTH) {
                 setMenuIcon(
-                    currentViewWidth <= PRT_SMALL_WIDTH ? faPlus : menuIcon)
+                    currentViewWidth <= PRT_SMALL_WIDTH ? faPlus : menuIcon
+                )
                 setDegrees(-90)
             }
-
         }
-
     }, [showMenuItems])
 
     const showMenuAndTransition = () => {
         setShowMenu(!showMenu)
         setMenuIcon(menuIcon === faPlus ? faMinus : faPlus)
         setDegrees(degrees == 0 ? -90 : 0)
-
     }
 
     const labelTrail = useTrail(MENU_ITEMS.length, {
@@ -135,7 +135,6 @@ const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
         setMenuIcon(!mobileMenuOpen ? faMinus : faPlus)
         setColor(color === PRT_DARK_COLOR ? PRT_MAIN_COLOR : PRT_DARK_COLOR)
         setDegrees(degrees == -90 ? 0 : -90)
-
     }
 
     return (
@@ -149,7 +148,11 @@ const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
                         className="prt_mobile_menu_link prt_overlay_menu prt_uppercase"
                         style={style}
                         onClick={() => {
-                            route.push(`#${MENU_ITEMS[index].link}`)
+                            route.push(
+                                MENU_ITEMS[index].link === PRT_RESUME_PAGE
+                                    ? MENU_ITEMS[index].link
+                                    : `#${MENU_ITEMS[index].link}`
+                            )
                             setDegrees(degrees === 0 ? -90 : 0)
                             setMobileMenuOpen(!mobileMenuOpen)
                             setMenuIcon(!mobileMenuOpen ? faMinus : faPlus)
