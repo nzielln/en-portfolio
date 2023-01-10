@@ -14,7 +14,7 @@ const Projects = ({ projects }: AnyProjectsProp) => {
 
     return (
         <div className="prt_more_projects flex flex-col ">
-            <div className="pt-16 pb-16 grid grid-cols-12">
+            <div className="pt-40 pb-24 grid grid-cols-12">
                 <h4 className="prt_more_projects_title prt_pf_content_i md:col-start-3 md:col-span-4 ">
                     o<span className="prt_pf_content">th</span>er{" "}
                     <span className="prt_pf_content">pr</span>o
