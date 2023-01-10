@@ -66,8 +66,6 @@ const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
     const [showMenu, setShowMenu] = useState<boolean>(showMenuItems)
     const [degrees, setDegrees] = useState<number>(0)
     const [showMobileMenu, setShowMobileMenu] = useState<boolean | undefined>()
-    const [mousex, setMouseX] = useState<number>()
-    const [mousey, setMouseY] = useState<number>()
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [windowWidth, setWindowWidth] = useState(0)
     const [color, setColor] = useState(PRT_MAIN_COLOR)
@@ -77,6 +75,7 @@ const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
     useEffect(() => {
         setShowMenu(showMenuItems)
         setMenuIcon(showMenuItems ? faMinus : faPlus)
+        setDegrees(showMenuItems ? 0 : -90)
         if (typeof window !== "undefined") {
             const currentViewWidth = window.innerWidth
             setWindowWidth(currentViewWidth)
@@ -89,18 +88,19 @@ const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
 
             if (currentViewWidth <= PRT_SMALL_WIDTH) {
                 setMenuIcon(
-                    currentViewWidth <= PRT_SMALL_WIDTH ? faPlus : menuIcon
-                )
-                setDegrees(currentViewWidth <= PRT_SMALL_WIDTH ? -90 : degrees)
+                    currentViewWidth <= PRT_SMALL_WIDTH ? faPlus : menuIcon)
+                setDegrees(-90)
             }
 
         }
+
     }, [showMenuItems])
 
     const showMenuAndTransition = () => {
-        setDegrees(degrees === 0 ? -90 : 0)
         setShowMenu(!showMenu)
         setMenuIcon(menuIcon === faPlus ? faMinus : faPlus)
+        setDegrees(degrees == 0 ? -90 : 0)
+
     }
 
     const labelTrail = useTrail(MENU_ITEMS.length, {
@@ -131,10 +131,11 @@ const Header = ({ showMenuItems, isDefault }: HeaderProp) => {
     })
 
     const showMobileMenuHandler = () => {
-        setDegrees(degrees === 0 ? -90 : 0)
         setMobileMenuOpen(!mobileMenuOpen)
         setMenuIcon(!mobileMenuOpen ? faMinus : faPlus)
         setColor(color === PRT_DARK_COLOR ? PRT_MAIN_COLOR : PRT_DARK_COLOR)
+        setDegrees(degrees == -90 ? 0 : -90)
+
     }
 
     return (
